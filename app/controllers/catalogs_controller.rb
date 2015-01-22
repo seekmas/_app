@@ -1,6 +1,7 @@
 class CatalogsController < ApplicationController
   before_action :set_catalog, only: [:show, :edit, :update, :destroy]
-  before_action :authenticate_user!
+
+  before_action :authenticate_admin!, only: [:new, :create, :edit, :update, :destroy]
   respond_to :html
 
   def index

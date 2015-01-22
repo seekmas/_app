@@ -1,20 +1,24 @@
 Rails.application.routes.draw do
-  resources :periods
-
-  resources :chapters
+  devise_for :admins
+  devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
 
   mount Like::Engine => '/'
   mount Ckeditor::Engine => '/ckeditor'
-  resources :courses
 
+  resources :periods
+  resources :chapters
+  resources :courses
   resources :catalogs
 
-  devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
+  get '/all' , :to => 'app#all' , :as => :all_courses
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
   root 'app#index'
+
+
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

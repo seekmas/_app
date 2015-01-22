@@ -51,4 +51,4 @@ production:
   <<: *default
   database: leancloud_prod
   username: root
-  password: <%= ENV['MYAPP_DATABASE_PASSWORD'] %>
+  password: lean8866

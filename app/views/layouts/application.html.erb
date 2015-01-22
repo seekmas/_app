@@ -48,18 +48,24 @@
         <a class="navbar-brand" href="/">Leancloud</a>
         <div class="navbar-collapse collapse navbar-responsive-collapse  pull-right">
           <ul class="nav navbar-nav">
+            <li><%= link_to "所有课程", all_courses_path %></li>
 
+            <% if current_admin %>
             <li><%= link_to "所有分类", catalogs_path  %></li>
             <li><%= link_to "所有课程", courses_path  %></li>
             <li><%= link_to "所有章节", chapters_path  %></li>
             <li><%= link_to "所有视频", periods_path  %></li>
+            <% end %>
 
             <li class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">与我相关 <span class="caret"></span></a>
               <ul class="dropdown-menu" role="menu">
-                <% if current_user %>
+                <% if current_user  %>
                     <li><%= link_to('修改密碼', edit_registration_path(:user)) %></li>
                     <li><%= link_to('登出', destroy_user_session_path, :method => :delete) %></li>
+                <% elsif current_admin %>
+                    <li><%= link_to('登出', destroy_admin_session_path, :method => :delete) %></li>
+
                 <% else %>
                     <li><%= link_to('註冊', new_registration_path(:user)) %></li>
                     <li><%= link_to('登入', new_session_path(:user)) %></li>
@@ -67,6 +73,7 @@
                 <li><%= link_to "Sign in with Facebook", user_omniauth_authorize_path(:facebook) %></li>
               </ul>
             </li>
+
           </ul>
         </div>
       </div>
