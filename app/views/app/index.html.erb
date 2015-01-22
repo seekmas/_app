@@ -1,0 +1,75 @@
+
+
+<div class="row course-container">
+
+  <% @courses.each do |course| %>
+      <div class="col-md-8">
+        <div class="thumbnail">
+            <%=image_tag course.cover.url(:medium)%>
+            <div class="caption">
+
+              <p class="text-muted text-bordered">分类: <%= link_to course.catalog , course.catalog %></p>
+
+
+              <h4><%=link_to course.subject, course %></h4>
+
+
+              <p class="link-group">
+                <% if Like::Like.liking?(current_user, course) %>
+                    <%= link_to fa_icon("thumbs-up", text: "取消赞"), like_path_for(course), method: :delete %>
+                <% else %>
+                    <%= link_to fa_icon("thumbs-o-up", text: "赞"), like_path_for(course), method: :post %>
+                <% end %>
+
+
+                <%=link_to fa_icon("bell-o", text: "学习"), course %>
+              </p>
+            </div>
+        </div>
+      </div>
+  <% end %>
+</div>
+
+<div class="col-md-24 hidden">
+  <%= will_paginate @courses %>
+</div>
+
+<script>
+    $(function(){
+
+        var $container = $('.course-container');
+
+        $container.imagesLoaded(function(){
+            $container.masonry({
+                itemSelector: '.col-md-8'
+            });
+        });
+
+        $container.infinitescroll({
+                    navSelector  : '.pagination',    // selector for the paged navigation
+                    nextSelector : '.next_page a',  // selector for the NEXT link (to page 2)
+                    itemSelector : '.col-md-8',    // selector for all items you'll retrieve
+
+                    loading: {
+                        finishedMsg: '加载完成.',
+                        img: '<%= asset_path('assets/loading/loading-bubbles.svg')%>',
+                        msg: null,
+                        msgText: "<em>加载更多的内容...</em>",
+                        speed: 'slow'
+                    }
+                },
+                // trigger Masonry as a callback
+                function( newElements ) {
+                    // hide new items while they are loading
+                    var $newElems = $( newElements ).css({ opacity: 0 });
+                    // ensure that images load before adding to masonry layout
+                    $newElems.imagesLoaded(function(){
+                        // show elems now they're ready
+                        $('.thumbnail').shadow();
+                        $newElems.animate({ opacity: 1 });
+                        $container.masonry( 'appended', $newElems, true );
+                    });
+                }
+        );
+    });
+</script>

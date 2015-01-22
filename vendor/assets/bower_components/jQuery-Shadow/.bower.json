@@ -1,0 +1,13 @@
+{
+  "name": "jQuery-Shadow",
+  "homepage": "https://github.com/sydlawrence/jQuery-Shadow",
+  "_release": "e271cdb300",
+  "_resolution": {
+    "type": "branch",
+    "branch": "master",
+    "commit": "e271cdb30087c6cb92cfa0729e35a5c28b58b629"
+  },
+  "_source": "git://github.com/sydlawrence/jQuery-Shadow.git",
+  "_target": "*",
+  "_originalSource": "git://github.com/sydlawrence/jQuery-Shadow"
+}

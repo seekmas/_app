@@ -1,0 +1,60 @@
+<div class="panel"><div class="panel-body">
+
+<p id="notice"><%= notice %></p>
+
+  <div class="row">
+    <div class="col-md-16">
+
+      <p class="text-muted"><%= link_to @course.catalog.subject , @course.catalog %></p>
+      <h2><%= @course.subject %></h2>
+
+      <div class="block">
+      <h4>课程概述</h4>
+      <p><%= @course.description.html_safe %></p>
+      </div>
+
+    </div>
+
+    <div class="col-md-8"><%= image_tag @course.cover , :class => :cover %></div>
+  </div>
+
+  <div class="row block">
+    <div class="col-md-24">
+      <h4>单元学习</h4>
+
+      <ul class="progress-list">
+      <% @chapters.each do |chapter| %>
+
+        <li><%=link_to chapter.order_id.to_s+'. '+chapter.subject %>
+          <ul>
+            <% chapter.periods.each do |period| %>
+
+                <li><%= link_to period.subject , period %></li>
+
+            <% end %>
+          </ul>
+        </li>
+
+      <% end %>
+      </ul>
+    </div>
+  </div>
+
+
+  <div class="row block">
+    <div class="col-md-24">
+          <h4>参考资料:</h4>
+          <%= @course.reference.html_safe %>
+    </div>
+  </div>
+
+  <div class="row block">
+    <div class="col-md-24">
+      <h4>相关问题:</h4>
+      <%= @course.trouble.html_safe %>
+    </div>
+  </div>
+
+
+
+</div></div>

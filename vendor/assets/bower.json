@@ -1,0 +1,9 @@
+{
+  "name": "dsl-generated dependencies",
+  "dependencies": {
+    "jQuery-Shadow": "git://github.com/sydlawrence/jQuery-Shadow",
+    "loading": "git://github.com/seekmas/loading",
+    "covervid": "git://github.com/stefanerickson/covervid",
+    "videojs": "git://github.com/videojs/video.js"
+  }
+}

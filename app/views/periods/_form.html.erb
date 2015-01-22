@@ -1,0 +1,38 @@
+<%= simple_form_for(@period) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <div class="form-group">
+    <%= f.input :subject %>
+    </div>
+
+    <div class="form-group">
+    <%= f.input :medium %>
+    </div>
+
+    <div class="form-group">
+    <%= f.label :content%>
+    <%= f.cktext_area :content %>
+    </div>
+
+    <div class="form-group">
+    <%= f.input :cover %>
+    </div>
+
+    <div class="form-group">
+    <%= f.label :reference%>
+    <%= f.cktext_area :reference %>
+    </div>
+
+    <div class="form-group">
+    <%= f.label :quiz%>
+    <%= f.cktext_area :quiz %>
+    </div>
+
+    <%= f.association :chapter %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>

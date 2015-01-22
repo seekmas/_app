@@ -1,0 +1,9 @@
+# A sample Bowerfile
+# Check out https://github.com/42dev/bower-rails#ruby-dsl-configuration for more options
+
+# asset 'bootstrap'
+asset 'jQuery-Shadow' , github: 'sydlawrence/jQuery-Shadow'
+asset 'loading' , github: 'seekmas/loading'
+asset 'covervid' , github: 'stefanerickson/covervid'
+asset 'videojs' , github: 'videojs/video.js'
+asset 'BigVideo.js'

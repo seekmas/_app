@@ -1,0 +1,34 @@
+<%= simple_form_for(@course) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <div class="form-group">
+        <%= f.input :subject %>
+    </div>
+
+    <div class="form-group">
+        <%= f.label :description%>
+        <%= f.cktext_area :description %>
+    </div>
+
+    <div class="form-group">
+        <%= f.input :cover %>
+    </div>
+
+    <div class="form-group">
+      <%= f.label :reference%>
+        <%= f.cktext_area :reference %>
+    </div>
+
+    <div class="form-group">
+      <%= f.label :trouble%>
+        <%= f.cktext_area :trouble %>
+    </div>
+
+    <%= f.association :catalog %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>

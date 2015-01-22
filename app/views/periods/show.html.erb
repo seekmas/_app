@@ -1,0 +1,61 @@
+<p id="notice"><%= notice %></p>
+<video id="leancloud" class="video-js vjs-default-skin" controls
+       preload="auto" width="100%" height="400" poster="really-cool-video-poster.jpg"
+       data-setup='{}'>
+  <source src="/5S.mp4" type='video/mp4'>
+
+  <p class="vjs-no-js">
+    To view this video please enable JavaScript, and consider upgrading to a web browser
+    that <a href="http://videojs.com/html5-video-support/" target="_blank">supports HTML5 video</a>
+  </p>
+</video>
+
+<div class="panel"><div class="panel-body">
+
+    <p class="text-muted">
+
+      <%=link_to @period.chapter.course.subject , @period.chapter.course %>
+      -
+      <%=link_to @period.chapter.subject , @period.chapter%>
+    </p>
+
+
+  <h2><%= @period.subject %></h2>
+
+
+  <div class="block">
+    <h3>课程内容</h3>
+    <%= @period.content.html_safe %>
+  </div>
+
+  <div class="block">
+    <h3>引用</h3>
+    <%= @period.reference.html_safe %>
+  </div>
+
+  <div class="block">
+    <h3>小测试</h3>
+    <%= @period.quiz.html_safe %>
+  </div>
+
+
+<%= link_to 'Edit', edit_period_path(@period) %> |
+<%= link_to 'Back', periods_path %>
+</div></div>
+
+
+
+
+<script>
+
+    var player = videojs('leancloud', { /* Options */ }, function() {
+        console.log('Good to go!');
+
+        this.play(); // if you don't trust autoplay for some reason
+
+        // How about an event listener?
+        this.on('ended', function() {
+            console.log('awww...over so soon?');
+        });
+    });
+</script>
