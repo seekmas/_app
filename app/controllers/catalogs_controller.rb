@@ -14,6 +14,7 @@ class CatalogsController < ApplicationController
     respond_with(@catalog)
   end
 
+
   def new
     @catalog = Catalog.new
     respond_with(@catalog)

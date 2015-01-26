@@ -26,6 +26,6 @@ gem 'bootstrap-will_paginate'
 gem 'will_paginate', '~> 3.0.6'
 gem "font-awesome-rails"
 gem 'like', '0.2.1'
-
+gem 'mobvious'
 
 gem 'omniauth-facebook'

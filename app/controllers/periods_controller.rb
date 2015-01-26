@@ -1,6 +1,7 @@
 class PeriodsController < ApplicationController
+  helper_method :device_type
   before_action :set_period, only: [:show, :edit, :update, :destroy]
-
+  before_action :authenticate_user!, only: [:show]
   before_action :authenticate_admin!, only: [:new, :create, :edit, :update, :destroy]
   respond_to :html
 
@@ -10,7 +11,21 @@ class PeriodsController < ApplicationController
   end
 
   def show
-    respond_with(@period)
+
+    history = History.find_by(:period_id => @period.id , :user_id => current_user.id)
+    if history
+      history.destroy
+    end
+    History.create({:period_id => @period.id , :user_id => current_user.id});
+
+    @profile = current_user.user_profile
+    if @profile == nil
+      respond_to do |format|
+        format.html { redirect_to new_user_profile_path , :notice => '请先完善你的资料' }
+      end
+    else
+      respond_with(@period)
+    end
   end
 
   def new
@@ -37,6 +52,10 @@ class PeriodsController < ApplicationController
     respond_with(@period)
   end
 
+  def device_type
+    request.env['mobvious.device_type']
+  end
+
   private
     def set_period
       @period = Period.find(params[:id])
@@ -45,4 +64,6 @@ class PeriodsController < ApplicationController
     def period_params
       params.require(:period).permit(:subject, :content, :medium, :cover, :reference, :quiz, :chapter_id)
     end
+
+
 end

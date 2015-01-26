@@ -8,7 +8,7 @@ Bundler.require(*Rails.groups)
 
 module Leancloud
   class Application < Rails::Application
-
+    config.middleware.use Mobvious::Manager
     config.assets.paths << Rails.root.join('vendor', 'assets', 'bower_components')
     config.assets.precompile += Ckeditor.assets
 

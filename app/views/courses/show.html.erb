@@ -18,6 +18,8 @@
     <div class="col-md-8"><%= image_tag @course.cover , :class => :cover %></div>
   </div>
 
+
+  <% if @course.enabled %>
   <div class="row block">
     <div class="col-md-24">
       <h4>单元学习</h4>
@@ -29,7 +31,7 @@
           <ul>
             <% chapter.periods.each do |period| %>
 
-                <li><%= link_to period.subject , period %></li>
+                <li><%= link_to fa_icon("play-circle-o") + " " + period.subject , period %></li>
 
             <% end %>
           </ul>
@@ -55,6 +57,9 @@
     </div>
   </div>
 
+  <% else %>
 
+    <strong>课程还不开放 请耐心等待</strong>
 
+  <% end %>
 </div></div>

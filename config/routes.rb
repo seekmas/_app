@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  resources :user_profiles
+
+  resources :newsfeeds
+
   devise_for :admins
   devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
 
@@ -11,6 +15,7 @@ Rails.application.routes.draw do
   resources :catalogs
 
   get '/all' , :to => 'app#all' , :as => :all_courses
+  get '/history' , :to => 'app#history', :as => :all_history
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

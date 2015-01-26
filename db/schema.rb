@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150122081456) do
+ActiveRecord::Schema.define(version: 20150126090235) do
 
   create_table "admins", force: true do |t|
     t.string   "email",              default: "", null: false
@@ -79,6 +79,14 @@ ActiveRecord::Schema.define(version: 20150122081456) do
     t.string   "cover_content_type"
     t.integer  "cover_file_size"
     t.datetime "cover_updated_at"
+    t.boolean  "enabled"
+  end
+
+  create_table "histories", force: true do |t|
+    t.integer  "period_id"
+    t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "like_likes", force: true do |t|
@@ -119,6 +127,16 @@ ActiveRecord::Schema.define(version: 20150122081456) do
   add_index "members", ["email_canonical"], name: "UNIQ_2DA17977A0D96FBF", unique: true, using: :btree
   add_index "members", ["username_canonical"], name: "UNIQ_2DA1797792FC23A8", unique: true, using: :btree
 
+  create_table "newsfeeds", force: true do |t|
+    t.string   "subject"
+    t.text     "content"
+    t.boolean  "enabled"
+    t.integer  "order_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "cover"
+  end
+
   create_table "periods", force: true do |t|
     t.string   "subject"
     t.text     "content"
@@ -133,6 +151,22 @@ ActiveRecord::Schema.define(version: 20150122081456) do
     t.integer  "cover_file_size"
     t.datetime "cover_updated_at"
     t.string   "medium"
+  end
+
+  create_table "user_profiles", force: true do |t|
+    t.string   "name"
+    t.string   "job"
+    t.string   "company"
+    t.string   "phone"
+    t.integer  "age"
+    t.string   "avatar"
+    t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "avatar_file_name"
+    t.string   "avatar_content_type"
+    t.integer  "avatar_file_size"
+    t.datetime "avatar_updated_at"
   end
 
   create_table "users", force: true do |t|

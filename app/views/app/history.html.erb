@@ -1,0 +1,14 @@
+<div class="panel"><div class="panel-body">
+<ul class="progress-list">
+  <li><ul>
+<% @histories.each do |history| %>
+
+    <li><%= link_to history.created_at.to_formatted_s(:db)+" : "+history.period.subject , history.period%></li>
+
+<% end %>
+  </ul>
+  </li>
+</ul>
+
+
+</div></div>

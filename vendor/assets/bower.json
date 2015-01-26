@@ -4,6 +4,9 @@
     "jQuery-Shadow": "git://github.com/sydlawrence/jQuery-Shadow",
     "loading": "git://github.com/seekmas/loading",
     "covervid": "git://github.com/stefanerickson/covervid",
-    "videojs": "git://github.com/videojs/video.js"
+    "videojs": "git://github.com/videojs/video.js",
+    "BigVideo.js": "latest",
+    "GrindPlayer": "http://yandex.st/swfobject/2.2/swfobject.min.js",
+    "fgnassSpin": "https://github.com/fgnass/spin.js.git"
   }
 }

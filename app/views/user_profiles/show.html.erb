@@ -1,0 +1,52 @@
+<div class="panel"><div class="panel-body">
+
+  <div class="row">
+
+    <div class="col-md-5"><%= image_tag @user_profile.avatar.url(:medium) , :class => 'avatar' %></div>
+    <div class="col-md-8">
+
+
+      <div class="list-group">
+        <a href="#" class="list-group-item">
+          <h4 class="list-group-item-heading">名字</h4>
+          <p class="list-group-item-text"><%= @user_profile.name %></p>
+        </a>
+      </div>
+
+      <div class="list-group">
+        <a href="#" class="list-group-item">
+          <h4 class="list-group-item-heading">工作</h4>
+          <p class="list-group-item-text"><%= @user_profile.job %></p>
+        </a>
+      </div>
+
+      <div class="list-group">
+        <a href="#" class="list-group-item">
+          <h4 class="list-group-item-heading">手机</h4>
+          <p class="list-group-item-text"><%= @user_profile.phone %></p>
+        </a>
+      </div>
+
+      <div class="list-group">
+        <a href="#" class="list-group-item">
+          <h4 class="list-group-item-heading">公司</h4>
+          <p class="list-group-item-text"><%= @user_profile.company %></p>
+        </a>
+      </div>
+
+      <div class="list-group">
+        <a href="#" class="list-group-item">
+          <h4 class="list-group-item-heading">年龄</h4>
+          <p class="list-group-item-text"><%= @user_profile.age %></p>
+        </a>
+      </div>
+
+    </div>
+
+  </div>
+
+
+
+<%= link_to '更新', edit_user_profile_path(@user_profile) %> |
+<%= link_to '返回', user_profiles_path %>
+</div></div>

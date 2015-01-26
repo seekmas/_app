@@ -1,0 +1,14 @@
+{
+  "name": "GrindPlayer",
+  "_cacheHeaders": {
+    "ETag": "\"4adf0993-27ec\"",
+    "Last-Modified": "Wed, 21 Oct 2009 13:16:03 GMT",
+    "Content-Length": "10220",
+    "Content-Type": "application/x-javascript"
+  },
+  "_release": "e-tag:4adf0993-",
+  "main": "index.js",
+  "_source": "http://yandex.st/swfobject/2.2/swfobject.min.js",
+  "_target": "*",
+  "_originalSource": "http://yandex.st/swfobject/2.2/swfobject.min.js"
+}

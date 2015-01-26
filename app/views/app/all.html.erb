@@ -1,10 +1,33 @@
 <div class="panel"><div class="panel-body">
   <% @catalogs.each do |catalog| %>
+      <% if catalog.courses.length > 0 %>
+
+          <h3><%=catalog.subject%></h3>
+
+          <div class="row">
+            <% counter = 1 %>
+            <% catalog.courses.each do |course| %>
+
+            <div class="col-md-8">
+
+              <div class="block"><%=link_to image_tag(course.cover.url(:thumb)) , course%>
+
+                <h4><%=link_to course.subject , course %></h4>
+              </div>
+
+            </div>
+
+                <% if counter % 3 == 0 %>
+
+                </div><div class="row">
+
+                <% end %>
 
 
+            <% counter = counter + 1 %>
+            <% end %>
+          </div>
 
-
-
-
+      <% end %>
   <% end %>
 </div></div>

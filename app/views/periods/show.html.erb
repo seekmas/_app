@@ -1,16 +1,202 @@
-<p id="notice"><%= notice %></p>
 
 <% if @period.medium %>
-<video id="leancloud" class="video-js vjs-default-skin" controls
-       preload="auto" width="100%" height="400" poster="really-cool-video-poster.jpg"
-       data-setup='{}'>
-  <source src="<%=@period.medium%>" type='video/mp4'>
 
-  <p class="vjs-no-js">
-    To view this video please enable JavaScript, and consider upgrading to a web browser
-    that <a href="http://videojs.com/html5-video-support/" target="_blank">supports HTML5 video</a>
-  </p>
-</video>
+    <% if device_type == :desktop %>
+    <div id="player"></div>
+
+    <script>
+
+        var player;
+        var isStartedPlaying = true;
+        var initialBufferTime = 0.1;
+        var bufferTime = 4;
+        var expandedBufferTime = 10;
+
+
+        function onJSBridge(playerId, event, data) {
+            switch(event) {
+                case "onJavaScriptBridgeCreated":
+                    player = document.getElementById('player');
+                    player.addEventListener("bufferingChange", "onBufferChange");
+//
+//                    player.displayAd({
+//                        // optional, but highly recommend to fill
+//                        id:'1'
+//
+//                        // url to media (video, image, swf, audio)
+//                        , url:'http://<%=request.host_with_port%>/ads/5_second_CocaCola_Ad.mp4'
+//
+//                        // if your image url doesn't have an extension
+//                        // then use this mediaType: "image"
+//                        , mediaType: 'video' // video | audio | image | swf
+//
+//                        // if your image doesn't have jpg or png extension
+//                        // then use this mimeType: "image/jpeg"
+//                        , mimeType: ''
+//
+//                        // default: true
+//                        , smoothing:true
+//
+//                        // if false, control bar in pause state and buffering animation will not hide
+//                        // e.g.: this parameter should be false for logo case
+//                        // default: true
+//                        , isAdvertisement:true
+//
+//                        // self-explained
+//                        , hideScrubBarWhilePlayingAd:true
+//                        , pauseMainMediaWhilePlayingAd:true
+//                        , resumePlaybackAfterAd:true // using only with previous parameter
+//                        , pauseMainMediaOnClick:true // using only with "clickUrl"
+//
+//                        // pre buffer media before start to show (if media is bufferable)
+//                        // default: false
+//                        , preBufferAd:true
+//                        , layoutInfo: {
+//                            index: 1
+//                            , scaleMode: 'none'          // [ letterbox | stretch | zoom | none ]
+//                            , horizontalAlign:'center'    // [ left | center | right ]
+//                            , verticalAlign:'middle'      // [ top | middle | bottom ]
+//                            , x:0
+//                            , y:0
+//                            , width:'100%'
+//                            , height:'100%'
+//                            , left:0
+//                            , right:0
+//                            , top:0
+//                            , bottom:0
+//                        }
+//
+//                        // navigate user to this url on click
+//                        , clickUrl:'http://gembachina.com/'
+//                        // show "x" button at top-right corner
+//                        , closable: true
+//                        // auto close ad after n seconds
+//                        , autoCloseAfter: 10 // usable for images or swf ads
+//
+//                    });
+
+
+
+                    break;
+
+                // player state change
+                case "ready":
+                case "loading":
+                    isStartedPlaying = false;
+                    player.setBufferTime(initialBufferTime);
+                    break;
+                case "playing":
+                    isStartedPlaying = true;
+                    break;
+                case "paused":
+                case "buffering":
+
+                // other events
+                case "mediaSize":
+                case "seeking":
+                    player.setBufferTime(initialBufferTime);
+                    break;
+                case "seeked":
+                case "volumeChange":
+                case "durationChange":
+                case "timeChange":
+                case "progress": // for progressive download only
+                case "complete":
+                case "advertisement":
+
+                default:
+                    // console.log(event, data);
+                    break;
+            }
+        }
+
+        function onBufferChange(buffering) {
+            // do not change buffer time before playback starts
+            if (!isStartedPlaying) return;
+
+            // if buffering is true, then player in buffering mode
+            // and we set buffer time to 4 seconds
+            // if buffering is false, then buffer is full and we can
+            // expand buffer time to load more content to prevent
+            // bandwidth fluctuations
+            if (buffering) {
+                player.setBufferTime(bufferTime);
+            } else {
+                player.setBufferTime(expandedBufferTime);
+            }
+        }
+
+
+        var flashvars = {
+            //Starts playing the media automagically, when ready
+            autoPlay: true ,
+            //Return meida to the beginning after playback completes.
+            autoRewind: true ,
+            //bufferTime
+            bufferTime: 4.0 ,
+            //Specifies an offset in seconds from the beginning of the content stream. When specified, the stream is presented as a subclip, with playback beginning at the given start time. The default value is NaN, which starts playback at the actual beginning of the stream. Progressive content is unaffected by this setting.
+            clipEndTime: null,
+            //Specifies an offset in seconds from the beginning of the content stream. When specified, the stream is presented as a subclip, with playback beginning at the given start time. The default value is NaN, which starts playback at the actual beginning of the stream. Progressive content is unaffected by this setting.
+            clipStartTime: null,
+            //URL to configuration XML file, use it instead flashvars
+            configuration: '' ,
+            //Auto-hide control bar
+            controlBarAutoHide: true ,
+            //Auto-hide timeout, in seconds
+            controlBarAutoHideTimeout: 3,
+            //Auto-hide control bar in full screen mode
+            controlBarFullScreenAutoHide: true,
+            //Enable to use StageVideo
+            enableStageVideo: true,
+            //Player halts if there is a problem loading a plug-in
+            haltOnError: false,
+            //Restarts media playback when the end of the file is reached
+            loop: false ,
+            //Specifies whether the player initially loads content with its volume on or off, if not auto-remembered before
+            muted: false,
+            scaleMode: 'letterbox',
+            src_defaultAudioLabel: 'Default',
+            streamType: 'recorded',
+            tintColor: '#336699',
+            volume: '1.0',
+            src: "<%=return_ref(@period.medium)%>",
+            javascriptCallbackFunction: "onJSBridge",
+            src_preroll: 'http://<%=request.host_with_port%>/ads/5_second_CocaCola_Ad.mp4'
+        };
+
+        var params = {
+            allowFullScreen: true
+            , allowScriptAccess: "always"
+            , bgcolor: "#ffffff"
+        };
+        var attrs = {
+            name: "player"
+        };
+
+        swfobject.embedSWF("/media/GrindPlayer.swf", "player", "854", "480", "10.2", null, flashvars, params, attrs);
+
+    </script>
+
+    <% elsif device_type == :tablet %>
+
+        <video id="example_video_1" class="video-js vjs-default-skin"
+               controls preload="auto" width="100%" height="400"
+               poster=""
+               data-setup='{"example_option":true}'>
+          <source src="<%=return_ref(@period.medium)%>" type='video/mp4' />
+          <p class="vjs-no-js">To view this video please enable JavaScript, and consider upgrading to a web browser that <a href="http://videojs.com/html5-video-support/" target="_blank">supports HTML5 video</a></p>
+        </video>
+
+    <% elsif device_type == :mobile %>
+        <video id="example_video_1" class="video-js vjs-default-skin"
+               controls preload="auto" width="100%" height="264"
+               poster=""
+               data-setup='{"example_option":true}'>
+          <source src="<%=return_ref(@period.medium)%>" type='video/mp4' />
+          <p class="vjs-no-js">To view this video please enable JavaScript, and consider upgrading to a web browser that <a href="http://videojs.com/html5-video-support/" target="_blank">supports HTML5 video</a></p>
+        </video>
+
+    <% end %>
 <% end %>
 <div class="panel"><div class="panel-body">
 
@@ -44,20 +230,3 @@
 <%= link_to 'Edit', edit_period_path(@period) %> |
 <%= link_to 'Back', periods_path %>
 </div></div>
-
-
-
-
-<script>
-
-    var player = videojs('leancloud', { /* Options */ }, function() {
-        console.log('Good to go!');
-
-        this.play(); // if you don't trust autoplay for some reason
-
-        // How about an event listener?
-        this.on('ended', function() {
-            console.log('awww...over so soon?');
-        });
-    });
-</script>

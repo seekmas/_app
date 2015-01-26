@@ -106,6 +106,10 @@ GEM
       railties
     mime-types (2.4.3)
     minitest (5.5.1)
+    mobileesp_converted (0.2.3)
+    mobvious (0.3.2)
+      mobileesp_converted (~> 0.2.0)
+      rack (>= 1.1.0)
     multi_json (1.10.1)
     multi_xml (0.5.5)
     multipart-post (2.0.0)
@@ -209,6 +213,7 @@ DEPENDENCIES
   jquery-turbolinks
   like (= 0.2.1)
   masonry-rails
+  mobvious
   mysql2
   nprogress-rails
   omniauth-facebook

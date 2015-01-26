@@ -29,6 +29,7 @@
 //= require isotope/jquery.isotope
 //= require covervid/covervid.min.js
 //= require videojs/dist/video-js/video.js
+//= require GrindPlayer/index
 //= require_tree .
 
 
@@ -42,6 +43,16 @@ $(function(){
     $('.navbar').shadow();
     $('.thumbnail').shadow();
     $('.panel').shadow();
-})
+});
 
-
+//
+//$(document).on("page:fetch", startSpinner);
+//$(document).on("page:receive", stopSpinner);
+//
+//var startSpinner = function(){
+//    console.log('startSpinner');
+//}
+//
+//var stopSpinner = function(){
+//    console.log('stopSpinner');
+//}
