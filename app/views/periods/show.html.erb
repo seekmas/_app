@@ -1,5 +1,5 @@
 
-<% if @period.medium %>
+<% if @period.medium != '' %>
 
     <% if device_type == :desktop %>
     <div id="player"></div>
@@ -195,9 +195,15 @@
           <source src="<%=return_ref(@period.medium)%>" type='video/mp4' />
           <p class="vjs-no-js">To view this video please enable JavaScript, and consider upgrading to a web browser that <a href="http://videojs.com/html5-video-support/" target="_blank">supports HTML5 video</a></p>
         </video>
-
     <% end %>
+
+<% else %>
+
+    <div id="document-preview" style="height: 640px;"></div>
+
 <% end %>
+
+
 <div class="panel"><div class="panel-body">
 
     <p class="text-muted">
@@ -211,11 +217,35 @@
   <h2><%= @period.subject %></h2>
 
 
-  <div class="block">
+  <div class="block row">
     <h3>课程内容</h3>
+
+
+    <% if @period.medium %>
+        <div id="document-preview" style="height: 640px;"></div>
+    <% end %>
+
     <%= @period.content.html_safe %>
 
 
+    <script>
+        var documentViewer = $('#document-preview').documentViewer();
+
+        documentViewer.load('<%=@period.pdf.url%>', {
+            height:600,
+            width: 800,
+            extension:'pdf',
+                autoplay:true,
+                autoLoadDependencies:true,
+                debug:false,
+                callback:function(){
+            },
+            jPlayer:{
+                //you can play any jPlayer options here
+                warningAlerts:false
+            }
+        });
+    </script>
 
   </div>
 

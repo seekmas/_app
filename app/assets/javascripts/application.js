@@ -30,8 +30,12 @@
 //= require covervid/covervid.min.js
 //= require videojs/dist/video-js/video.js
 //= require GrindPlayer/index
-//= require pdf
-//= require jquery-pdfdoc/jquery-pdfdoc.js
+
+// require viewer/documentViewer/libs/pdfjs/pdf
+// require viewer/documentViewer/libs/pdfjs/compatibility
+//= require viewer/documentViewer/libs/yepnope.1.5.3-min
+//= require ttw-document-viewer.min
+//= require viewer/demo/js/jquery.tools.min
 //= require_tree .
 
 
@@ -46,6 +50,8 @@ $(function(){
     $('.thumbnail').shadow();
     $('.panel').shadow();
 });
+
+
 
 //
 //$(document).on("page:fetch", startSpinner);

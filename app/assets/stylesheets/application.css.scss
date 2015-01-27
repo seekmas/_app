@@ -879,7 +879,8 @@ $nprogress-zindex: 10100;
 @import 'masonry/transitions';
 @import "font-awesome";
 @import "videojs/dist/video-js/video-js.min";
-@import "jquery-pdfdoc/jquery-pdfdoc";
+@import "_pdf_style";
+
 
 
 #nprogress .spinner {

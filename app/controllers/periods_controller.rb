@@ -66,7 +66,7 @@ class PeriodsController < ApplicationController
     end
 
     def period_params
-      params.require(:period).permit(:subject, :content, :medium, :cover, :reference, :quiz, :chapter_id)
+      params.require(:period).permit(:subject, :content, :pdf, :medium, :cover, :reference, :quiz, :chapter_id)
     end
 
 

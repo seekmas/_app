@@ -46,6 +46,9 @@
   <div class="row block">
     <div class="col-md-24">
           <h4>参考资料:</h4>
+
+      <div id="document-preview" style="height: 640px;"></div>
+
           <%= @course.reference.html_safe %>
     </div>
   </div>
@@ -63,3 +66,22 @@
 
   <% end %>
 </div></div>
+
+<script>
+    var documentViewer = $('#document-preview').documentViewer();
+
+    documentViewer.load('<%=@course.pdf.url%>', {
+        height:600,
+        width: 800,
+        extension:'pdf',
+        autoplay:true,
+        autoLoadDependencies:true,
+        debug:false,
+        callback:function(){
+        },
+        jPlayer:{
+            //you can play any jPlayer options here
+            warningAlerts:false
+        }
+    });
+</script>

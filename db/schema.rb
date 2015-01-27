@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150126090235) do
+ActiveRecord::Schema.define(version: 20150127075259) do
 
   create_table "admins", force: true do |t|
     t.string   "email",              default: "", null: false
@@ -80,6 +80,11 @@ ActiveRecord::Schema.define(version: 20150126090235) do
     t.integer  "cover_file_size"
     t.datetime "cover_updated_at"
     t.boolean  "enabled"
+    t.string   "pdf"
+    t.string   "pdf_file_name"
+    t.string   "pdf_content_type"
+    t.integer  "pdf_file_size"
+    t.datetime "pdf_updated_at"
   end
 
   create_table "histories", force: true do |t|
@@ -151,6 +156,11 @@ ActiveRecord::Schema.define(version: 20150126090235) do
     t.integer  "cover_file_size"
     t.datetime "cover_updated_at"
     t.string   "medium"
+    t.string   "pdf"
+    t.string   "pdf_file_name"
+    t.string   "pdf_content_type"
+    t.integer  "pdf_file_size"
+    t.datetime "pdf_updated_at"
   end
 
   create_table "user_profiles", force: true do |t|
