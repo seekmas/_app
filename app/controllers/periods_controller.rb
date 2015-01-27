@@ -1,6 +1,6 @@
 class PeriodsController < ApplicationController
   helper_method :device_type
-  before_action :set_period, only: [:show, :edit, :update, :destroy]
+  before_action :set_period, only: [:to_xml, :show, :edit, :update, :destroy]
   before_action :authenticate_user!, only: [:show]
   before_action :authenticate_admin!, only: [:new, :create, :edit, :update, :destroy]
   respond_to :html
@@ -8,6 +8,10 @@ class PeriodsController < ApplicationController
   def index
     @periods = Period.all
     respond_with(@periods)
+  end
+
+  def to_xml
+
   end
 
   def show

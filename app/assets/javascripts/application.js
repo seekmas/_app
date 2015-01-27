@@ -30,6 +30,8 @@
 //= require covervid/covervid.min.js
 //= require videojs/dist/video-js/video.js
 //= require GrindPlayer/index
+//= require pdf
+//= require jquery-pdfdoc/jquery-pdfdoc.js
 //= require_tree .
 
 

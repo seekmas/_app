@@ -1,4 +1,6 @@
 class AppController < ApplicationController
+  before_action :authenticate_user! , only:[:history]
+
   def index
 
     if current_user
@@ -10,7 +12,7 @@ class AppController < ApplicationController
   end
 
   def all
-    @catalogs = Catalog.includes(:courses =>  :chapters ).all
+    @catalogs = Catalog.includes(:courses ).all
   end
 
   def history

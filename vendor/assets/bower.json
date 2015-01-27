@@ -7,6 +7,8 @@
     "videojs": "git://github.com/videojs/video.js",
     "BigVideo.js": "latest",
     "GrindPlayer": "http://yandex.st/swfobject/2.2/swfobject.min.js",
-    "fgnassSpin": "https://github.com/fgnass/spin.js.git"
+    "fgnassSpin": "https://github.com/fgnass/spin.js.git",
+    "jquery-pdfdoc": "https://github.com/JAZ-013/jquery-pdfdoc.git",
+    "pdf.js": "https://github.com/mozilla/pdf.js.git"
   }
 }

@@ -879,6 +879,8 @@ $nprogress-zindex: 10100;
 @import 'masonry/transitions';
 @import "font-awesome";
 @import "videojs/dist/video-js/video-js.min";
+@import "jquery-pdfdoc/jquery-pdfdoc";
+
 
 #nprogress .spinner {
   display: block;
@@ -1025,4 +1027,16 @@ a:hover {
   border-radius: 5px;
   width: 150px;
   height: auto;
+}
+
+.img-cover-thumb {
+  width: 120px;
+  height: 80px;
+}
+
+.mini-block {
+  padding: 20px;
+  align-content: center;
+  height: 150px;
+  border-bottom: solid 1px #eeeeee;
 }

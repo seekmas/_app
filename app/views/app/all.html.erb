@@ -10,9 +10,11 @@
 
             <div class="col-md-8">
 
-              <div class="block"><%=link_to image_tag(course.cover.url(:thumb)) , course%>
+              <div class="mini-block"><%=link_to image_tag(course.cover.url(:thumb), :class => 'img-cover-thumb') , course%>
 
                 <h4><%=link_to course.subject , course %></h4>
+
+
               </div>
 
             </div>
