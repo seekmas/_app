@@ -238,22 +238,33 @@
 
     <script>
 
-        var documentViewer = $('#document-preview').documentViewer();
+      var ppt = function(){
 
-        documentViewer.load('<%=@period.pdf.url%>', {
-            height: $('#main-context').width() - 200  ,
-            width: $('#main-context').width() - 60 ,
-            extension:'pdf',
-                autoplay:true,
-                autoLoadDependencies:true,
-                debug:false,
-                callback:function(){
-            },
-            jPlayer:{
-                //you can play any jPlayer options here
-                warningAlerts:false
-            }
-        });
+          var documentViewer = $('#document-preview').documentViewer();
+
+          documentViewer.load('<%=@period.pdf.url%>', {
+              height: $('#main-context').width() - 200  ,
+              width: $('#main-context').width() - 60 ,
+              extension:'pdf',
+              autoplay:true,
+              autoLoadDependencies:true,
+              debug:false,
+              callback:function(){
+              },
+              jPlayer:{
+                  //you can play any jPlayer options here
+                  warningAlerts:false
+              }
+          });
+      }
+
+      ppt();
+
+
+      if( $.turbo.isReady){
+          ppt();
+      }
+
     </script>
 
   </div>
