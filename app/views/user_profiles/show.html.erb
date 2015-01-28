@@ -1,11 +1,17 @@
 <div class="panel"><div class="panel-body">
 
+
   <div class="row">
 
-    <div class="col-md-5"><%= image_tag @user_profile.avatar.url(:medium) , :class => 'avatar' %></div>
+    <div class="col-md-5">
+      <% if @user_profile %>
+        <%= image_tag @user_profile.avatar.url(:medium) , :class => 'avatar' %>
+      <% end %>
+    </div>
+
     <div class="col-md-8">
 
-
+      <% if @user_profile %>
       <div class="list-group">
         <a href="#" class="list-group-item">
           <h4 class="list-group-item-heading">名字</h4>
@@ -40,7 +46,7 @@
           <p class="list-group-item-text"><%= @user_profile.age %></p>
         </a>
       </div>
-
+      <% end %>
     </div>
 
   </div>
