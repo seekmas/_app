@@ -1,3 +1,4 @@
+# encoding: utf-8
 class PeriodsController < ApplicationController
   helper_method :device_type
   before_action :set_period, only: [:to_xml, :show, :edit, :update, :destroy]
@@ -25,7 +26,7 @@ class PeriodsController < ApplicationController
     @profile = current_user.user_profile
     if @profile == nil
       respond_to do |format|
-        format.html { redirect_to new_user_profile_path }
+        format.html { redirect_to new_user_profile_path , :notice => "完善资料" }
       end
     else
       respond_with(@period)
