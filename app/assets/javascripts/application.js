@@ -1,15 +1,3 @@
-// This is a manifest file that'll be compiled into application.js, which will include all the files
-// listed below.
-//
-// Any JavaScript/Coffee file within this directory, lib/assets/javascripts, vendor/assets/javascripts,
-// or vendor/assets/javascripts of plugins, if any, can be referenced here using a relative path.
-//
-// It's not advisable to add code directly here, but if you do, it'll appear at the bottom of the
-// compiled file.
-//
-// Read Sprockets README (https://github.com/sstephenson/sprockets#sprockets-directives) for details
-// about supported directives.
-//
 //= require jquery
 //= require jquery.turbolinks
 //= require jquery_ujs
@@ -31,11 +19,7 @@
 //= require videojs/dist/video-js/video.js
 //= require GrindPlayer/index
 
-// require viewer/documentViewer/libs/pdfjs/pdf
-// require viewer/documentViewer/libs/pdfjs/compatibility
-//= require viewer/documentViewer/libs/yepnope.1.5.3-min
-//= require ttw-document-viewer.min
-//= require viewer/demo/js/jquery.tools.min
+
 //= require_tree .
 
 

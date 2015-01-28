@@ -1,3 +1,10 @@
+<% content_for :javascript do %>
+    <%= javascript_include_tag 'viewer/documentViewer/libs/pdfjs/pdf' %>
+    <%= javascript_include_tag 'viewer/documentViewer/libs/yepnope.1.5.3-min' %>
+    <%= javascript_include_tag 'viewer/demo/js/jquery.tools.min' %>
+    <%= javascript_include_tag 'ttw-document-viewer.min' %>
+<% end %>
+
 <div class="panel"><div class="panel-body">
 
 <p id="notice"><%= notice %></p>
@@ -47,7 +54,9 @@
     <div class="col-md-24">
           <h4>参考资料:</h4>
 
-      <div id="document-preview" style="height: 640px;"></div>
+            <% if @course.pdf.url != '/pdfs/original/missing.png' %>
+            <div id="document-preview" style="height: 640px;"></div>
+            <% end %>
 
           <%= @course.reference.html_safe %>
     </div>
@@ -67,6 +76,7 @@
   <% end %>
 </div></div>
 
+<% if @course.pdf.url != '/pdfs/original/missing.png' %>
 <script>
     var documentViewer = $('#document-preview').documentViewer();
 
@@ -85,3 +95,4 @@
         }
     });
 </script>
+<% end %>

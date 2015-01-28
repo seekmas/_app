@@ -1,4 +1,12 @@
+<% content_for :javascript do %>
+    <%= javascript_include_tag 'viewer/documentViewer/libs/pdfjs/pdf' %>
+    <%= javascript_include_tag 'viewer/documentViewer/libs/yepnope.1.5.3-min' %>
+    <%= javascript_include_tag 'viewer/demo/js/jquery.tools.min' %>
+    <%= javascript_include_tag 'ttw-document-viewer.min' %>
+<% end %>
 
+
+<div oncontextmenu="return false;">
 <% if @period.medium != '' %>
 
     <% if device_type == :desktop %>
@@ -82,7 +90,7 @@
                 // player state change
                 case "ready":
                 case "loading":
-                    isStartedPlaying = false;
+                    isStartedPlaying = true;
                     player.setBufferTime(initialBufferTime);
                     break;
                 case "playing":
@@ -133,7 +141,7 @@
             //Return meida to the beginning after playback completes.
             autoRewind: true ,
             //bufferTime
-            bufferTime: 4.0 ,
+            //bufferTime: 4.0 ,
             //Specifies an offset in seconds from the beginning of the content stream. When specified, the stream is presented as a subclip, with playback beginning at the given start time. The default value is NaN, which starts playback at the actual beginning of the stream. Progressive content is unaffected by this setting.
             clipEndTime: null,
             //Specifies an offset in seconds from the beginning of the content stream. When specified, the stream is presented as a subclip, with playback beginning at the given start time. The default value is NaN, which starts playback at the actual beginning of the stream. Progressive content is unaffected by this setting.
@@ -161,7 +169,7 @@
             volume: '1.0',
             src: "<%=return_ref(@period.medium)%>",
             javascriptCallbackFunction: "onJSBridge",
-            src_preroll: 'http://<%=request.host_with_port%>/ads/5_second_CocaCola_Ad.mp4'
+            //src_preroll: 'http://<%=request.host_with_port%>/ads/5_second_CocaCola_Ad.mp4'
         };
 
         var params = {
@@ -264,3 +272,4 @@
 <%= link_to 'Back', periods_path %>
 </div></div>
 
+</div>
