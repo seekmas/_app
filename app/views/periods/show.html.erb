@@ -6,7 +6,7 @@
 <% end %>
 
 
-<div oncontextmenu="return false;">
+<div id="main-context" oncontextmenu="return false;">
 <% if @period.medium != '' %>
 
     <% if device_type == :desktop %>
@@ -237,11 +237,12 @@
 
 
     <script>
+
         var documentViewer = $('#document-preview').documentViewer();
 
         documentViewer.load('<%=@period.pdf.url%>', {
-            height:600,
-            width: 800,
+            height: $('#main-context').width() - 200  ,
+            width: $('#main-context').width() - 60 ,
             extension:'pdf',
                 autoplay:true,
                 autoLoadDependencies:true,

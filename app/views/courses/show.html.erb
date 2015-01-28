@@ -50,7 +50,7 @@
   </div>
 
 
-  <div class="row block">
+  <div id="main-context" class="row block">
     <div class="col-md-24">
           <h4>参考资料:</h4>
 
@@ -81,8 +81,8 @@
     var documentViewer = $('#document-preview').documentViewer();
 
     documentViewer.load('<%=@course.pdf.url%>', {
-        height:600,
-        width: 800,
+        height: $('#main-context').width() - 200  ,
+        width: $('#main-context').width() - 60 ,
         extension:'pdf',
         autoplay:true,
         autoLoadDependencies:true,
