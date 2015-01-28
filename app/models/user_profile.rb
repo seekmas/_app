@@ -7,7 +7,5 @@ class UserProfile < ActiveRecord::Base
   validates :phone , :presence => true
   validates :job , :presence => true
   validates :company , :presence => true
-  validates :age , :presence => true
-  validates :avatar , :presence => true
 
 end
