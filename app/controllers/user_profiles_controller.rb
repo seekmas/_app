@@ -15,7 +15,16 @@ class UserProfilesController < ApplicationController
   end
 
   def show
-    respond_with(@user_profile)
+
+    if @user_profile == nil
+      respond_to do |format|
+        format.html { redirect_to new_user_profile_path }
+      end
+    else
+      respond_with(@user_profile)
+    end
+
+
   end
 
   def new

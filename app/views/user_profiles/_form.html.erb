@@ -1,16 +1,16 @@
 <%= simple_form_for(@user_profile) do |f| %>
   <%= f.error_notification %>
 
-  <div class="form-inputs">
-    <%= f.input :name %>
-    <%= f.input :job %>
-    <%= f.input :company %>
-    <%= f.input :phone %>
-    <%= f.input :age %>
-    <%= f.input :avatar %>
+  <div class="form-group">
+    <%= f.input :name, :label => '姓名' %>
+    <%= f.input :job , :label => '工作' %>
+    <%= f.input :company , :label => '公司' %>
+    <%= f.input :phone , :label => '手机' %>
+    <%= f.input :age , :label => '年龄' %>
+    <%= f.input :avatar , :label => '个人形象' %>
   </div>
 
-  <div class="form-actions">
-    <%= f.button :submit %>
+  <div class="form-group">
+    <%= f.button :submit , '更新资料' %>
   </div>
 <% end %>
