@@ -25,7 +25,7 @@ class PeriodsController < ApplicationController
     @profile = current_user.user_profile
     if @profile == nil
       respond_to do |format|
-        format.html { redirect_to new_user_profile_path , :notice => '请先完善你的资料' }
+        format.html { redirect_to new_user_profile_path , :notice => "完善资料" }
       end
     else
       respond_with(@period)
