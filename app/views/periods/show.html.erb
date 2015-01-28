@@ -218,7 +218,7 @@
 
       <%=link_to @period.chapter.course.subject , @period.chapter.course %>
       -
-      <%=link_to @period.chapter.subject , @period.chapter%>
+      <%=link_to @period.chapter.subject , @period.chapter.course %>
     </p>
 
 
@@ -269,8 +269,11 @@
   </div>
 
 
-<%= link_to 'Edit', edit_period_path(@period) %> |
-<%= link_to 'Back', periods_path %>
+  <% if current_admin %>
+    <%= link_to 'Edit', edit_period_path(@period) %> |
+    <%= link_to 'Back', periods_path %>
+  <% end %>
+
 </div></div>
 
 </div>
