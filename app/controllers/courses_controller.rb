@@ -5,7 +5,7 @@ class CoursesController < ApplicationController
   respond_to :html
 
   def index
-    @courses = Course.all
+    @courses = Course.order(:catalog_id => :asc ).all
     respond_with(@courses)
   end
 
@@ -44,6 +44,6 @@ class CoursesController < ApplicationController
     end
 
     def course_params
-      params.require(:course).permit(:subject, :description, :pdf, :cover, :reference, :trouble, :catalog_id, :enabled)
+      params.require(:course).permit(:subject, :vip_allowed, :flag, :flag_color, :description, :pdf, :cover, :reference, :trouble, :catalog_id, :enabled)
     end
 end

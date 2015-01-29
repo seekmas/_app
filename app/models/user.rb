@@ -9,6 +9,8 @@ class User < ActiveRecord::Base
 
   has_one :user_profile
   has_one :history
+  has_many :vips
+  has_many :subscribers
 
   def self.from_omniauth(auth)
     where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
@@ -27,4 +29,7 @@ class User < ActiveRecord::Base
     end
   end
 
+  def to_s
+    self.id.to_s + '. ' +self.email
+  end
 end

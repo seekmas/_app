@@ -22,7 +22,42 @@
 
     </div>
 
-    <div class="col-md-8"><%= image_tag @course.cover , :class => :cover %></div>
+    <div class="col-md-8">
+      <div class="thumbnail_cover">
+
+      <% if @course.vip_allowed %>
+
+          <% if @course.flag != '' and @course.flag != nil %>
+              <div class="github-fork-ribbon-wrapper right">
+                <div class="right-bottom github-fork-ribbon" <% if @course.flag_color != '' %>style="background: <%=@course.flag_color%><% end %>">
+                  <a href="#"><%=@course.flag%></a>
+                </div>
+              </div>
+          <% else %>
+
+              <div class="github-fork-ribbon-wrapper right">
+                <div class="right-bottom github-fork-ribbon">
+                  <a href="#">V I P</a>
+                </div>
+              </div>
+
+          <% end %>
+
+      <% else %>
+
+          <% if @course.flag != '' and @course.flag != nil %>
+              <div class="github-fork-ribbon-wrapper right">
+                <div class="right-bottom github-fork-ribbon" <% if @course.flag_color != '' %>style="background: <%=@course.flag_color%><% end %>">
+                  <a href="#"><%=@course.flag%></a>
+                </div>
+              </div>
+          <% end %>
+
+      <% end %>
+      <%= image_tag @course.cover , :class => :cover %>
+      </div>
+
+    </div>
   </div>
 
 
@@ -36,9 +71,9 @@
 
         <li><%=link_to chapter.order_id.to_s+'. '+chapter.subject %>
           <ul>
-            <% chapter.periods.each do |period| %>
+            <% chapter.periods.order(:order_id => :asc).each do |period| %>
 
-                <li><%= link_to fa_icon("play-circle-o") + " " + period.subject , period %></li>
+                <li><%= link_to fa_icon("play-circle-o") + " " + period.order_id.to_s + ". " + period.subject , period %></li>
 
             <% end %>
           </ul>
@@ -97,9 +132,10 @@
             }
         });
     }
-    
+
     ppt();
     if( $.turbo.isReady){
+        console.log('Cancel');
         ppt();
     }
 

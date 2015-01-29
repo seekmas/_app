@@ -1,4 +1,10 @@
 Rails.application.routes.draw do
+  resources :subscribers
+
+  resources :wishlists
+
+  resources :vips
+
   resources :user_profiles
 
   resources :newsfeeds
@@ -16,6 +22,14 @@ Rails.application.routes.draw do
 
   get '/all' , :to => 'app#all' , :as => :all_courses
   get '/history' , :to => 'app#history', :as => :all_history
+  get '/to_be_vip' , :to => 'app#vip' , :as => :to_be_vip
+  get '/subscriber/:course_id' , :to => 'app#subscriber' , :as => 'subscribe_course'
+  get '/cancel_subscriber/:course_id' , :to => 'app#cancel_subscriber' , :as => 'cancel_subscribe_course'
+  get '/my_course' , :to => 'subscribers#my_course' , :as => 'my_course'
+
+  #members
+  get '/members' , :to => 'members#index' , :as => 'members'
+  get '/:user_id/member' , :to => 'members#show' , :as => 'show_member'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

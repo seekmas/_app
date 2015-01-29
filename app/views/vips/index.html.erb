@@ -1,0 +1,31 @@
+<div class="panel"><div class="panel-body">
+<h1>Listing vips</h1>
+
+<table class="table table-bordered table-condensed">
+  <thead>
+    <tr>
+      <th>User</th>
+      <th>Expired at</th>
+      <th>Description</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @vips.each do |vip| %>
+      <tr>
+        <td><%= vip.user %></td>
+        <td><%= vip.expired_at %></td>
+        <td><%= vip.description %></td>
+        <td><%= link_to 'Show', vip %></td>
+        <td><%= link_to 'Edit', edit_vip_path(vip) %></td>
+        <td><%= link_to 'Destroy', vip, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Vip', new_vip_path %>
+</div></div>

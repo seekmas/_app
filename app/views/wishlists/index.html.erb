@@ -1,0 +1,39 @@
+<h1>Listing wishlists</h1>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Job</th>
+      <th>Company</th>
+      <th>Phone</th>
+      <th>Email</th>
+      <th>Get from</th>
+      <th>Message</th>
+      <th>User</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @wishlists.each do |wishlist| %>
+      <tr>
+        <td><%= wishlist.name %></td>
+        <td><%= wishlist.job %></td>
+        <td><%= wishlist.company %></td>
+        <td><%= wishlist.phone %></td>
+        <td><%= wishlist.email %></td>
+        <td><%= wishlist.get_from %></td>
+        <td><%= wishlist.message %></td>
+        <td><%= wishlist.user_id %></td>
+        <td><%= link_to 'Show', wishlist %></td>
+        <td><%= link_to 'Edit', edit_wishlist_path(wishlist) %></td>
+        <td><%= link_to 'Destroy', wishlist, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Wishlist', new_wishlist_path %>

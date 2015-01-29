@@ -8,6 +8,7 @@ class Course < ActiveRecord::Base
 
   belongs_to :catalog
   has_many :chapters
+  has_many :subscribers
 
   def to_s
     self.id.to_s+'. '+self.subject

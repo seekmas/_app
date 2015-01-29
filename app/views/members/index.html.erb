@@ -1,0 +1,33 @@
+<div class="panel"><div class="panel-body">
+
+  <table class="table table-bordered table-condensed">
+
+    <tr>
+      <td>id</td>
+      <td>username</td>
+      <td>email</td>
+      <td>sign_in_count</td>
+      <td>last_sign_in_ip</td>
+
+    </tr>
+    <% @users.each do |user| %>
+
+
+    <tr>
+      <td><%=user.id%></td>
+      <td><%=user.username%></td>
+      <td><%=user.email%></td>
+      <td><%=user.sign_in_count%></td>
+      <td><%=user.last_sign_in_ip%></td>
+      <td>
+        <%=link_to 'Show' , show_member_path(user) %>
+      </td>
+    </tr>
+
+
+    <% end %>
+  </table>
+
+  <%= will_paginate @users %>
+
+</div></div>

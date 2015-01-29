@@ -1,42 +1,63 @@
 <%= simple_form_for(@period) do |f| %>
   <%= f.error_notification %>
 
-  <div class="form-inputs">
     <div class="form-group">
-    <%= f.input :subject %>
+      <%= f.input :order_id , :label => 'ID序号' %>
     </div>
 
     <div class="form-group">
-      <%= f.input :pdf %>
+        <%= f.association :chapter , :label => '所属的章节' %>
     </div>
 
     <div class="form-group">
-    <%= f.input :medium %>
+        <%= f.input :subject , :label => '小结标题' %>
     </div>
 
     <div class="form-group">
-    <%= f.label :content%>
-    <%= f.cktext_area :content %>
+
+      <%= f.input :pdf , :label => 'PDF资料' %>
+
+      <% if @period.pdf %>
+          <span class="high-light">已经更新的PDF: <%=@period.pdf.url%></span>
+      <% end %>
+
     </div>
 
     <div class="form-group">
-    <%= f.input :cover %>
+
+      <%= f.label '小结封面' %>
+      <%= f.input :cover %>
+
+      <% if @period.cover %>
+          <span>已经更新的封面: <%=image_tag @period.cover.url(:thumb)%></span>
+      <% end %>
+
+    </div>
+
+
+    <div class="form-group">
+        <%= f.input :medium , :label => '视频源文件' %>
     </div>
 
     <div class="form-group">
-    <%= f.label :reference%>
+        <%= f.label '小结正文' %>
+        <%= f.cktext_area :content %>
+    </div>
+
+
+
+    <div class="form-group">
+    <%= f.label '引用资料' %>
     <%= f.cktext_area :reference %>
     </div>
 
     <div class="form-group">
-    <%= f.label :quiz%>
+    <%= f.label '测试/问题' %>
     <%= f.cktext_area :quiz %>
     </div>
 
-    <%= f.association :chapter %>
-  </div>
 
-  <div class="form-actions">
-    <%= f.button :submit %>
+  <div class="form-group">
+    <%= f.button :submit , '更新' %>
   </div>
 <% end %>

@@ -17,6 +17,17 @@ class PeriodsController < ApplicationController
 
   def show
 
+    if @period.chapter.course.vip_allowed == true
+      @vip = Vip.order(:id => :desc).find_by({:user_id => current_user.id })
+      if @vip == nil or Time.now > @vip.expired_at
+        return respond_to do |format|
+          format.html { redirect_to to_be_vip_path , :notice => '你还不是VIP会员/VIP已经到期' }
+        end
+
+      end
+    end
+
+
     history = History.find_by(:period_id => @period.id , :user_id => current_user.id)
     if history
       history.destroy
@@ -44,12 +55,12 @@ class PeriodsController < ApplicationController
   def create
     @period = Period.new(period_params)
     @period.save
-    redirect_to new_period_path
+    redirect_to new_period_path , :notice => 'Created success , continue to create new one'
   end
 
   def update
     @period.update(period_params)
-    respond_with(@period)
+    redirect_to periods_path , :notice => 'Update success'
   end
 
   def destroy
@@ -67,7 +78,7 @@ class PeriodsController < ApplicationController
     end
 
     def period_params
-      params.require(:period).permit(:subject, :content, :pdf, :medium, :cover, :reference, :quiz, :chapter_id)
+      params.require(:period).permit(:subject, :content, :pdf, :medium, :cover, :reference, :quiz, :chapter_id, :order_id)
     end
 
 

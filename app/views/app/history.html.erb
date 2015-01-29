@@ -1,14 +1,13 @@
-<div class="panel"><div class="panel-body">
+<h3>我的观看记录</h3>
 <ul class="progress-list">
   <li><ul>
 <% @histories.each do |history| %>
 
-    <li><%= link_to history.created_at.to_formatted_s(:db)+" : "+history.period.subject , history.period%></li>
+        <% if history.period != nil %>
+            <li><%= link_to history.created_at.to_formatted_s(:db)+" : "+history.period.subject , history.period%></li>
+        <% end %>
 
 <% end %>
   </ul>
   </li>
 </ul>
-
-
-</div></div>

@@ -6,6 +6,9 @@
 <% end %>
 
 
+
+
+
 <div id="main-context" oncontextmenu="return false;">
 <% if @period.medium != '' %>
 
@@ -207,8 +210,6 @@
 
 <% else %>
 
-    <div id="document-preview" style="height: 640px;"></div>
-
 <% end %>
 
 
@@ -230,12 +231,16 @@
 
 
     <% if @period.medium %>
+        <% if @period.pdf.url != '/pdfs/original/missing.png' %>
         <div id="document-preview" style="height: 640px;"></div>
+        <% end %>
     <% end %>
 
     <%= @period.content.html_safe %>
 
 
+
+    <% if @period.pdf.url != '/pdfs/original/missing.png' %>
     <script>
 
       var ppt = function(){
@@ -260,12 +265,12 @@
 
       ppt();
 
-
       if( $.turbo.isReady){
           ppt();
       }
 
     </script>
+    <% end %>
 
   </div>
 

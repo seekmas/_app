@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150127075259) do
+ActiveRecord::Schema.define(version: 20150129063221) do
 
   create_table "admins", force: true do |t|
     t.string   "email",              default: "", null: false
@@ -85,6 +85,9 @@ ActiveRecord::Schema.define(version: 20150127075259) do
     t.string   "pdf_content_type"
     t.integer  "pdf_file_size"
     t.datetime "pdf_updated_at"
+    t.boolean  "vip_allowed"
+    t.string   "flag"
+    t.string   "flag_color"
   end
 
   create_table "histories", force: true do |t|
@@ -161,6 +164,14 @@ ActiveRecord::Schema.define(version: 20150127075259) do
     t.string   "pdf_content_type"
     t.integer  "pdf_file_size"
     t.datetime "pdf_updated_at"
+    t.integer  "order_id"
+  end
+
+  create_table "subscribers", force: true do |t|
+    t.integer  "course_id"
+    t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "user_profiles", force: true do |t|
@@ -200,5 +211,26 @@ ActiveRecord::Schema.define(version: 20150127075259) do
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
+
+  create_table "vips", force: true do |t|
+    t.integer  "user_id"
+    t.date     "expired_at"
+    t.text     "description"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "wishlists", force: true do |t|
+    t.string   "name"
+    t.string   "job"
+    t.string   "company"
+    t.string   "phone"
+    t.string   "email"
+    t.string   "get_from"
+    t.text     "message"
+    t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
 end

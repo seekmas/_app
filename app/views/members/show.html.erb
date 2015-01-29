@@ -1,0 +1,171 @@
+<div class="panel">
+  <div class="panel-body">
+
+    <h3>用户资料 :</h3>
+
+    <table class="table table-bordered table-condensed">
+
+
+      <tr>
+        <td>Id</td>
+        <td><%=@user.id%></td>
+      </tr>
+
+      <tr>
+        <td>Username</td>
+        <td><%=@user.username%></td>
+      </tr>
+
+      <tr>
+        <td>Email</td>
+        <td><%=@user.email%></td>
+      </tr>
+
+      <% if @user.user_profile %>
+
+          <% profile = @user.user_profile %>
+          <tr>
+            <td>Name</td>
+            <td><%=profile.name%></td>
+          </tr>
+
+          <tr>
+            <td>Age</td>
+            <td><%=profile.age%></td>
+          </tr>
+
+          <tr>
+            <td>Phone</td>
+            <td><%=image_tag profile.avatar.url(:thumb)%></td>
+          </tr>
+
+          <tr>
+            <td>Job</td>
+            <td><%=profile.job%></td>
+          </tr>
+
+          <tr>
+            <td>Company</td>
+            <td><%=profile.company%></td>
+          </tr>
+
+          <tr>
+            <td>Phone</td>
+            <td><%=profile.phone%></td>
+          </tr>
+
+      <% end %>
+
+      <tr>
+        <td>sign_in_count</td>
+        <td><%=@user.sign_in_count%></td>
+      </tr>
+      <tr>
+        <td>current_sign_in_at</td>
+        <td><%=@user.current_sign_in_at%></td>
+      </tr>
+      <tr>
+        <td>last_sign_in_at</td>
+        <td><%=@user.last_sign_in_at%></td>
+      </tr>
+      <tr>
+        <td>current_sign_in_ip</td>
+        <td><%=@user.current_sign_in_ip%></td>
+      </tr>
+      <tr>
+        <td>last_sign_in_ip</td>
+        <td><%=@user.last_sign_in_ip%></td>
+      </tr>
+
+    </table>
+
+    <h3>用户VIP情况 :</h3>
+
+    <ul>
+    <% @vips.each do |vip|%>
+
+    <li>
+      到期时间: <%=vip.expired_at%> <% if Time.now < vip.expired_at %><span class="label label-success">正常</span><% else %><span class="label label-default">到期</span><% end %>
+    </li>
+
+    <% end %>
+    </ul>
+
+    <h3>用户订阅 :</h3>
+
+    <% @subscriber.each do |subscriber| %>
+
+    <% course = subscriber.course %>
+
+        <div class="col-md-6">
+          <div class="thumbnail">
+
+            <% if course.vip_allowed %>
+
+                <% if course.flag != '' and course.flag != nil %>
+                    <div class="github-fork-ribbon-wrapper right">
+                      <div class="right-bottom github-fork-ribbon" <% if course.flag_color != '' %>style="background: <%=course.flag_color%><% end %>">
+                        <a href="#"><%=course.flag%></a>
+                      </div>
+                    </div>
+                <% else %>
+
+                    <div class="github-fork-ribbon-wrapper right">
+                      <div class="right-bottom github-fork-ribbon">
+                        <a href="#">V I P</a>
+                      </div>
+                    </div>
+
+                <% end %>
+
+            <% else %>
+
+                <% if course.flag != '' and course.flag != nil %>
+                    <div class="github-fork-ribbon-wrapper right">
+                      <div class="right-bottom github-fork-ribbon" <% if course.flag_color != '' %>style="background: <%=course.flag_color%><% end %>">
+                        <a href="#"><%=course.flag%></a>
+                      </div>
+                    </div>
+                <% end %>
+
+            <% end %>
+
+
+
+            <%=image_tag course.cover.url(:medium), { :class => 'cover'}  %>
+
+            <div class="caption">
+
+              <p class="text-muted text-bordered">
+
+                分类:
+
+                <% if course.catalog != nil %>
+
+                    <%= link_to course.catalog.subject , course.catalog %>
+
+                <% end %>
+              </p>
+
+
+              <h4><%=link_to course.subject, course %></h4>
+
+
+              <p class="link-group">
+                <% if Like::Like.liking?(current_user, course) %>
+                    <%= link_to fa_icon("thumbs-up", text: "取消赞"), like_path_for(course), method: :delete %>
+                <% else %>
+                    <%= link_to fa_icon("thumbs-o-up", text: "赞"), like_path_for(course), method: :post %>
+                <% end %>
+
+
+                <%=link_to fa_icon("bell-o", text: "订阅"), subscribe_course_path(course) %>
+              </p>
+            </div>
+          </div>
+        </div>
+
+    <% end %>
+
+  </div>
+</div>

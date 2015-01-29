@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>User:</strong>
+  <%= @vip.user_id %>
+</p>
+
+<p>
+  <strong>Expired at:</strong>
+  <%= @vip.expired_at %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @vip.description %>
+</p>
+
+<%= link_to 'Edit', edit_vip_path(@vip) %> |
+<%= link_to 'Back', vips_path %>

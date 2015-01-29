@@ -1,0 +1,76 @@
+
+<h3>我订阅的课程</h3>
+
+<% @subscribers.each do |subscriber| %>
+<% course = subscriber.course %>
+
+
+    <div class="col-md-8">
+      <div class="thumbnail">
+
+        <% if course.vip_allowed %>
+
+            <% if course.flag != '' and course.flag != nil %>
+                <div class="github-fork-ribbon-wrapper right">
+                  <div class="right-bottom github-fork-ribbon" <% if course.flag_color != '' %>style="background: <%=course.flag_color%><% end %>">
+                    <a href="#"><%=course.flag%></a>
+                  </div>
+                </div>
+            <% else %>
+
+                <div class="github-fork-ribbon-wrapper right">
+                  <div class="right-bottom github-fork-ribbon">
+                    <a href="#">V I P</a>
+                  </div>
+                </div>
+
+            <% end %>
+
+        <% else %>
+
+            <% if course.flag != '' and course.flag != nil %>
+                <div class="github-fork-ribbon-wrapper right">
+                  <div class="right-bottom github-fork-ribbon" <% if course.flag_color != '' %>style="background: <%=course.flag_color%><% end %>">
+                    <a href="#"><%=course.flag%></a>
+                  </div>
+                </div>
+            <% end %>
+
+        <% end %>
+
+
+
+        <%=image_tag course.cover.url(:medium), { :class => 'cover'}  %>
+
+        <div class="caption">
+
+          <p class="text-muted text-bordered">
+
+            分类:
+
+            <% if course.catalog != nil %>
+
+                <%= link_to course.catalog.subject , course.catalog %>
+
+            <% end %>
+          </p>
+
+
+          <h4><%=link_to course.subject, course %></h4>
+
+
+          <p class="link-group">
+            <% if Like::Like.liking?(current_user, course) %>
+                <%= link_to fa_icon("thumbs-up", text: "取消赞"), like_path_for(course), method: :delete %>
+            <% else %>
+                <%= link_to fa_icon("thumbs-o-up", text: "赞"), like_path_for(course), method: :post %>
+            <% end %>
+
+
+            <%=link_to fa_icon("bell", text: "取消订阅"), cancel_subscribe_course_path(course) %>
+          </p>
+        </div>
+      </div>
+    </div>
+
+<% end %>

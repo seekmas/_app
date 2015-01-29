@@ -1,0 +1,17 @@
+<%= simple_form_for(@wishlist) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <%= f.input :name , :label => '怎么称呼您' %>
+    <%= f.input :job , :label => '您目前的工作' %>
+    <%= f.input :company , :label => '您所在的公司' %>
+    <%= f.input :phone , :label => '手机联系方式' %>
+    <%= f.input :email , :label => 'Email联系方式'  %>
+    <%= f.input :get_from , :label => '从哪里了解我们的' %>
+    <%= f.input :message , :label => '你期待的课程'  %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit , '将我添加到VIP清单' , :class => 'btn btn-primary' %>
+  </div>
+<% end %>

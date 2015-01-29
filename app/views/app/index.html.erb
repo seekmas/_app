@@ -1,14 +1,55 @@
-
-
 <div class="row course-container">
 
   <% @courses.each do |course| %>
       <div class="col-md-8">
         <div class="thumbnail">
-            <%=image_tag course.cover.url(:medium)%>
+
+          <% if course.vip_allowed %>
+
+              <% if course.flag != '' and course.flag != nil %>
+              <div class="github-fork-ribbon-wrapper right">
+                <div class="right-bottom github-fork-ribbon" <% if course.flag_color != '' %>style="background: <%=course.flag_color%><% end %>">
+                  <a href="#"><%=course.flag%></a>
+                </div>
+              </div>
+              <% else %>
+
+                  <div class="github-fork-ribbon-wrapper right">
+                    <div class="right-bottom github-fork-ribbon">
+                      <a href="#">V I P</a>
+                    </div>
+                  </div>
+
+              <% end %>
+
+          <% else %>
+
+              <% if course.flag != '' and course.flag != nil %>
+                  <div class="github-fork-ribbon-wrapper right">
+                    <div class="right-bottom github-fork-ribbon" <% if course.flag_color != '' %>style="background: <%=course.flag_color%><% end %>">
+                      <a href="#"><%=course.flag%></a>
+                    </div>
+                  </div>
+              <% end %>
+
+          <% end %>
+
+
+
+          <%=image_tag course.cover.url(:medium), { :class => 'cover'}  %>
+
             <div class="caption">
 
-              <p class="text-muted text-bordered">分类: <%= link_to course.catalog.subject , course.catalog %></p>
+              <p class="text-muted text-bordered">
+
+                分类:
+
+                <% if course.catalog != nil %>
+
+                    <%= link_to course.catalog.subject , course.catalog %>
+
+                <% end %>
+              </p>
 
 
               <h4><%=link_to course.subject, course %></h4>
@@ -22,7 +63,7 @@
                 <% end %>
 
 
-                <%=link_to fa_icon("bell-o", text: "学习"), course %>
+                <%=link_to fa_icon("bell-o", text: "订阅"), subscribe_course_path(course) %>
               </p>
             </div>
         </div>
@@ -72,6 +113,8 @@
                   });
               }
       );
+
+
   }
 
   infinite_scroll();

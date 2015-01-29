@@ -1,4 +1,7 @@
-<div class="panel"><div class="panel-body">
+<div class="page-header">
+    <h3>当前分类总计 <%=Catalog.all.length%> 个， 课程总计 <%=Course.all.length%> 门 ， 课时总计 <%=Period.all.length%> 个</h3>
+  </div>
+
   <% @catalogs.each do |catalog| %>
       <% if catalog.courses.length > 0 %>
 
@@ -10,9 +13,41 @@
 
             <div class="col-md-8">
 
-              <div class="mini-block"><%=link_to image_tag(course.cover.url(:thumb), :class => 'img-cover-thumb') , course%>
+              <div class="mini-block">
 
-                <h4><%=link_to course.subject , course %></h4>
+                <% if course.vip_allowed %>
+
+                    <% if course.flag != '' and course.flag != nil %>
+                        <div class="github-fork-ribbon-wrapper right">
+                          <div class="right-bottom github-fork-ribbon" <% if course.flag_color != '' %>style="background: <%=course.flag_color%><% end %>">
+                            <a href="#"><%=course.flag%></a>
+                          </div>
+                        </div>
+                    <% else %>
+
+                        <div class="github-fork-ribbon-wrapper right">
+                          <div class="right-bottom github-fork-ribbon">
+                            <a href="#">V I P</a>
+                          </div>
+                        </div>
+
+                    <% end %>
+
+                <% else %>
+
+                    <% if course.flag != '' and course.flag != nil %>
+                        <div class="github-fork-ribbon-wrapper right">
+                          <div class="right-bottom github-fork-ribbon" <% if course.flag_color != '' %>style="background: <%=course.flag_color%><% end %>">
+                            <a href="#"><%=course.flag%></a>
+                          </div>
+                        </div>
+                    <% end %>
+
+                <% end %>
+
+                <%=link_to image_tag(course.cover.url(:medium), :class => 'img-cover-thumb') , course%>
+
+                <h4 class="sub-title"><%=link_to course.subject , course %></h4>
 
 
               </div>
@@ -32,4 +67,3 @@
 
       <% end %>
   <% end %>
-</div></div>

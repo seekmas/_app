@@ -1,5 +1,4 @@
-<p id="notice"><%= notice %></p>
-
+<div class="panel"><div class="panel-body">
 <p>
   <strong>Subject:</strong>
   <%= @chapter.subject %>
@@ -17,8 +16,23 @@
 
 <p>
   <strong>Course:</strong>
-  <%= @chapter.course_id %>
+
+  <% if @chapter.course == nil %>
+      未分类
+  <% else %>
+      <%= @chapter.course.subject %>
+  <% end %>
 </p>
+  <p>章节中包含:</p>
+
+  <ul>
+  <% @chapter.periods.each do |period| %>
+
+    <li><%= link_to period.subject , edit_period_path(period) %></li>
+
+  <% end %>
+  </ul>
 
 <%= link_to 'Edit', edit_chapter_path(@chapter) %> |
 <%= link_to 'Back', chapters_path %>
+</div></div>

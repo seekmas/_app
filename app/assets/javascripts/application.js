@@ -18,8 +18,9 @@
 //= require covervid/covervid.min.js
 //= require videojs/dist/video-js/video.js
 //= require GrindPlayer/index
-
-
+//= require select2
+//= require select2_locale_zh-CN
+//= require jquery-ui
 //= require_tree .
 
 
@@ -33,6 +34,18 @@ $(function(){
     $('.navbar').shadow();
     $('.thumbnail').shadow();
     $('.panel').shadow();
+    $('.thumbnail_cover').shadow();
+    $('.mini-block').shadow();
+    $("select").select2();
+    $("input.datepicker").each(function(input) {
+        $(this).datepicker({
+            dateFormat: "yy-mm-dd",
+            altField: $(this).next()
+        })
+
+        // If you use i18n-js you can set the locale like that
+        $(this).datepicker("option", $.datepicker.regional[I18n.currentLocale()]);
+    })
 });
 
 
