@@ -1,3 +1,4 @@
+# encoding: utf-8
 class UserProfilesController < ApplicationController
   before_action :set_user_profile, only: [:show, :edit, :update, :destroy]
   respond_to :html

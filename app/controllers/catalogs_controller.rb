@@ -1,3 +1,4 @@
+# encoding: utf-8
 class CatalogsController < ApplicationController
   before_action :set_catalog, only: [:show, :edit, :update, :destroy]
 

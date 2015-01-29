@@ -1,3 +1,4 @@
+# encoding: utf-8
 class SubscribersController < ApplicationController
   before_action :set_subscriber, only: [:show, :edit, :update, :destroy]
 

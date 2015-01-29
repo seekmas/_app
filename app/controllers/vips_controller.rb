@@ -1,3 +1,4 @@
+# encoding: utf-8
 class VipsController < ApplicationController
   before_action :set_vip, only: [:show, :edit, :update, :destroy]
 

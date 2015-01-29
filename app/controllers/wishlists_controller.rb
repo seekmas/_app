@@ -1,3 +1,4 @@
+# encoding: utf-8
 class WishlistsController < ApplicationController
   before_action :set_wishlist, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_admin! , only: [:index]

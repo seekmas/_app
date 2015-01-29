@@ -1,3 +1,4 @@
+# encoding: utf-8
 class ChaptersController < ApplicationController
   before_action :set_chapter, only: [:show, :edit, :update, :destroy]
 
