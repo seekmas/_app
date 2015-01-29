@@ -215,13 +215,14 @@
 
 <div class="panel"><div class="panel-body">
 
+  <% if @period.chapter != nil %>
     <p class="text-muted">
 
       <%=link_to @period.chapter.course.subject , @period.chapter.course %>
       -
       <%=link_to @period.chapter.subject , @period.chapter.course %>
     </p>
-
+  <% end %>
 
   <h2><%= @period.subject %></h2>
 
