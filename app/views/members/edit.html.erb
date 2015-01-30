@@ -1,0 +1,13 @@
+<div class="panel"><div class="panel-body">
+  <h3>添加用户</h3>
+
+  <%= simple_form_for @user , :url => post_member_path , :method => :post do |f| %>
+      <%= f.input :username %>
+      <%= f.input :email %>
+      <%= f.input :encrypted_password %>
+      <%= f.input :password_salt %>
+
+      <%= f.button :submit %>
+  <% end %>
+
+</div></div>

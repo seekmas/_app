@@ -35,7 +35,6 @@ class AppController < ApplicationController
   def cancel_subscriber
     @subscriber = Subscriber.find_by({ :user_id => current_user.id , :course_id => params[:course_id]})
     @subscriber.destroy
-
     respond_to do |format|
       format.html { redirect_to course_path(Course.find(params[:course_id]))  , :notice => '取消订阅成功' }
     end
@@ -43,7 +42,6 @@ class AppController < ApplicationController
 
   def to_excel
     @users = User.all
-
     respond_to do |format|
       format.xls {
         filename = "users-#{Time.now.strftime("%Y%m%d%H%M%S")}.xls"

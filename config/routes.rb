@@ -31,6 +31,8 @@ Rails.application.routes.draw do
   get '/members' , :to => 'members#index' , :as => 'members'
   get '/members/new' , :to => 'members#new' , :as => 'members_new'
   get '/:user_id/member' , :to => 'members#show' , :as => 'show_member'
+  get '/:user_id/member/edit' , :to => 'members#edit' , :as => 'edit_member'
+  post '/:user_id/member/edit' , :to => 'members#edit' , :as => 'post_member'
 
   get '/users' , :to => 'app#to_excel' , :as => 'users'
 
