@@ -16,17 +16,29 @@ class PeriodsController < ApplicationController
   end
 
   def show
+    if @period.chapter == nil
 
-    if @period.chapter.course.vip_allowed == true
-      @vip = Vip.order(:id => :desc).find_by({:user_id => current_user.id })
-      if @vip == nil or Time.now > @vip.expired_at
+      if current_admin
+
+      else
         return respond_to do |format|
           format.html { redirect_to to_be_vip_path , :notice => '你还不是VIP会员/VIP已经到期' }
         end
 
       end
-    end
 
+
+    else
+
+      if @period.chapter.course.vip_allowed == true
+        @vip = Vip.order(:id => :desc).find_by({:user_id => current_user.id })
+        if @vip == nil or Time.now > @vip.expired_at
+          return respond_to do |format|
+            format.html { redirect_to to_be_vip_path , :notice => '你还不是VIP会员/VIP已经到期' }
+          end
+        end
+      end
+    end
 
     history = History.find_by(:period_id => @period.id , :user_id => current_user.id)
     if history

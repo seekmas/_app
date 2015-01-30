@@ -29,7 +29,10 @@ Rails.application.routes.draw do
 
   #members
   get '/members' , :to => 'members#index' , :as => 'members'
+  get '/members/new' , :to => 'members#new' , :as => 'members_new'
   get '/:user_id/member' , :to => 'members#show' , :as => 'show_member'
+
+  get '/users' , :to => 'app#to_excel' , :as => 'users'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

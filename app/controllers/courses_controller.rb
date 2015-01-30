@@ -7,7 +7,15 @@ class CoursesController < ApplicationController
 
   def index
     @courses = Course.order(:catalog_id => :asc ).all
-    respond_with(@courses)
+    #respond_with(@courses)
+
+    respond_to do |format|
+      format.html { @courses }
+      format.xls {
+        filename = "courses-#{Time.now.strftime("%Y%m%d%H%M%S")}.xls"
+        send_data(@courses.to_xls(:only => [:id, :subject, :description, :reference, :trouble, :catalog_id, :vip_allowed, :enabled, :flag, :flag_color]), :type => "application/excel; charset=utf-8; header=present", :filename => filename)
+      }
+    end
   end
 
   def show

@@ -6,7 +6,13 @@ class VipsController < ApplicationController
 
   def index
     @vips = Vip.all
-    respond_with(@vips)
+    respond_to do |format|
+      format.html { @vips }
+      format.xls {
+        filename = "vips-#{Time.now.strftime("%Y%m%d%H%M%S")}.xls"
+        send_data(@vips.to_xls(:only => [:id, :user_id, :expired_at, :description]), :type => "application/excel; charset=utf-8; header=present", :filename => filename)
+      }
+    end
   end
 
   def show
