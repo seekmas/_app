@@ -110,7 +110,7 @@
           <div class="panel"><div class="panel-body">
             <h3>课程类别</h3>
             <ul class="nav nav-list">
-                <% Catalog.all.each do |catalog| %>
+                <% Catalog.where(:enabled => true).all.each do |catalog| %>
 
                 <li>
                     <%=link_to catalog do %><span class="badge"><%=catalog.courses.length%></span> <%=catalog.subject%><% end %>

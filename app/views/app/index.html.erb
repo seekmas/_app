@@ -36,7 +36,7 @@
 
 
 
-          <%=image_tag course.cover.url(:medium), { :class => 'cover'}  %>
+          <%=link_to image_tag(course.cover.url(:medium), { :class => 'cover'}) , course  %>
 
             <div class="caption">
 
@@ -113,8 +113,6 @@
                   });
               }
       );
-
-
   }
 
   infinite_scroll();

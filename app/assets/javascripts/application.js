@@ -47,17 +47,3 @@ $(function(){
         $(this).datepicker("option", $.datepicker.regional[I18n.currentLocale()]);
     })
 });
-
-
-
-//
-//$(document).on("page:fetch", startSpinner);
-//$(document).on("page:receive", stopSpinner);
-//
-//var startSpinner = function(){
-//    console.log('startSpinner');
-//}
-//
-//var stopSpinner = function(){
-//    console.log('stopSpinner');
-//}

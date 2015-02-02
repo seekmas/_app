@@ -23,15 +23,12 @@ class MembersController < ApplicationController
   end
 
   def edit
-
     @user = User.find(params[:user_id])
     if params[:user]
       if params[:user][:encrypted_password]!= '' and params[:user][:password_salt] != ''
         @user.update({:encrypted_password => params[:user][:encrypted_password] , :password_salt => params[:user][:password_salt]})
       end
     end
-
-
   end
 
 end
