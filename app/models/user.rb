@@ -5,7 +5,7 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable, :confirmable, :encryptable,
          :recoverable, :rememberable, :trackable, :validatable
 
-  devise :omniauthable, :omniauth_providers => [:facebook , :weibo]
+  devise :omniauthable, :omniauth_providers => [:weibo]
 
   has_one :user_profile
   has_one :history
