@@ -13,6 +13,6 @@ class DeviseMailPreview < ActionMailer::Preview
 
   def unlock_instructions
     @user = User.find(1);
-    Devise::Mailer.reset_password_instructions(@user, "Token")
+    Devise::Mailer.unlock_instructions(@user, "Token")
   end
 end
