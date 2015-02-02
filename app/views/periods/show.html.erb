@@ -5,10 +5,6 @@
     <%= javascript_include_tag 'ttw-document-viewer.min' %>
 <% end %>
 
-
-
-
-
 <div id="main-context" oncontextmenu="return false;">
 <% if @period.medium != '' %>
 
@@ -243,8 +239,7 @@
 
     <% if @period.pdf.url != '/pdfs/original/missing.png' %>
     <script>
-
-      var ppt = function(){
+      var apps = function(){
 
           var documentViewer = $('#document-preview').documentViewer();
 
@@ -262,12 +257,15 @@
                   warningAlerts:false
               }
           });
+
+
+
       }
 
-      ppt();
+      apps();
 
-      if( $.turbo.isReady){
-          ppt();
+      if($.turbo.isReady){
+          apps();
       }
 
     </script>
@@ -294,3 +292,4 @@
 </div></div>
 
 </div>
+

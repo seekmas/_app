@@ -50,7 +50,9 @@ class AppController < ApplicationController
         send_data(@users.to_xls(:only => [:id , :email , :username]), :type => "application/excel; charset=utf-8; header=present", :filename => filename)
       }
     end
+  end
 
+  def sso_warning
   end
 
 end

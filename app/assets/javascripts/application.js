@@ -22,6 +22,8 @@
 //= require select2_locale_zh-CN
 //= require jquery-ui
 //= require cover-flow/dist/coverflow.min
+
+//= require socket.io
 //= require_tree .
 
 

@@ -35,6 +35,7 @@ Rails.application.routes.draw do
   post '/:user_id/member/edit' , :to => 'members#edit' , :as => 'post_member'
 
   get '/users' , :to => 'app#to_excel' , :as => 'users'
+  get '/sso_warning' , :to => 'app#sso_warning' , :as => 'sso_warning'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
