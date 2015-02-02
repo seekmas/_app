@@ -1,4 +1,18 @@
-<div class="row course-container">
+
+  <div class="wrapper ui-coverflow" id="coverflow">
+
+    <% Newsfeed.where(:enabled => true).order(:order_id => :desc).all.each do |newsfeed| %>
+        <%= link_to image_tag(newsfeed.avatar.url(:medium) ,
+                      :class => 'coverflow' ,
+                      :style => 'width: 600px;') , newsfeed%>
+    <% end %>
+  </div>
+
+  <div id="license">
+  </div>
+
+<div class="row course-container" style="margin-top: 300px;">
+
 
   <% @courses.each do |course| %>
       <div class="col-md-8">
@@ -113,6 +127,17 @@
                   });
               }
       );
+
+      $('#coverflow').coverflow({
+          active: 1,
+          duration: 600 ,
+          scale: 0.9,
+          trigger:
+          {
+              itemclick: true,
+              swipe: true
+          }
+      });
   }
 
   infinite_scroll();
@@ -120,4 +145,6 @@
   if( $.turbo.isReady){
       infinite_scroll();
   }
+
+
 </script>

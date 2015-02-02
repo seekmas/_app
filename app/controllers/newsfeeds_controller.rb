@@ -1,6 +1,6 @@
 class NewsfeedsController < ApplicationController
   before_action :set_newsfeed, only: [:show, :edit, :update, :destroy]
-
+  before_action :authenticate_admin! , :except => [:show]
   respond_to :html
 
   def index
@@ -42,6 +42,6 @@ class NewsfeedsController < ApplicationController
     end
 
     def newsfeed_params
-      params.require(:newsfeed).permit(:subject, :content, :enabled, :order_id)
+      params.require(:newsfeed).permit(:subject, :avatar, :active, :content, :enabled, :order_id)
     end
 end

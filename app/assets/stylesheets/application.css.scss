@@ -107,9 +107,9 @@ $padding-xs-horizontal:     5px !default;
 $line-height-large:         1.3333333 !default; // extra decimals for Win 8.1 Chrome
 $line-height-small:         1.5 !default;
 
-$border-radius-base:        2px !default;
-$border-radius-large:       3px !default;
-$border-radius-small:       1.5px !default;
+$border-radius-base:        3px !default;
+$border-radius-large:       6px !default;
+$border-radius-small:       2px !default;
 
 //** Global color for active items (e.g., navs or dropdowns).
 $component-active-color:    #fff !default;
@@ -885,6 +885,7 @@ $nprogress-zindex: 10100;
 @import "github-fork-ribbon-css/gh-fork-ribbon.ie";
 @import "github-fork-ribbon-css/gh-fork-ribbon";
 @import "jquery-ui/themes/start/jquery-ui.min";
+@import "cover-flow/dist/coverflow";
 
 #nprogress .spinner {
   display: block;
@@ -1103,4 +1104,11 @@ a:hover {
 
 .thumbnail_cover {
   position: relative
+}
+
+.ui-state-active, .ui-widget-content .ui-state-active, .ui-widget-header .ui-state-active {
+  border: 1px solid #F0F0F0;
+  background: #F0F0F0;
+  font-weight: normal;
+  color: #FFF;
 }

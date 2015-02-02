@@ -1,5 +1,9 @@
 class AddAttachmentToNewsfeed < ActiveRecord::Migration
-  def change
-    add_column :newsfeeds, :cover, :string
+  def self.up
+    add_attachment :newsfeeds, :cover
+  end
+
+  def self.down
+    remove_attachment :newsfeeds, :cover
   end
 end

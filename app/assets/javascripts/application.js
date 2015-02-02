@@ -21,6 +21,7 @@
 //= require select2
 //= require select2_locale_zh-CN
 //= require jquery-ui
+//= require cover-flow/dist/coverflow.min
 //= require_tree .
 
 
@@ -35,6 +36,7 @@ $(function(){
     $('.thumbnail').shadow();
     $('.panel').shadow();
     $('.thumbnail_cover').shadow();
+    $('.coverflow').shadow();
     $('.mini-block').shadow();
     $("select").select2();
     $("input.datepicker").each(function(input) {

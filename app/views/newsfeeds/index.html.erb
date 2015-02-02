@@ -1,10 +1,12 @@
+<div class="panel"><div class="panel-body">
 <h1>Listing newsfeeds</h1>
 
-<table>
+<table class="table table-bordered table-condensed">
   <thead>
     <tr>
+      <th>Cover</th>
+      <th>Active?</th>
       <th>Subject</th>
-      <th>Content</th>
       <th>Enabled</th>
       <th>Order</th>
       <th colspan="3"></th>
@@ -14,8 +16,9 @@
   <tbody>
     <% @newsfeeds.each do |newsfeed| %>
       <tr>
+        <td><%= image_tag newsfeed.avatar.url(:thumb)%></td>
+        <td><%= newsfeed.active%></td>
         <td><%= newsfeed.subject %></td>
-        <td><%= newsfeed.content %></td>
         <td><%= newsfeed.enabled %></td>
         <td><%= newsfeed.order_id %></td>
         <td><%= link_to 'Show', newsfeed %></td>
@@ -29,3 +32,4 @@
 <br>
 
 <%= link_to 'New Newsfeed', new_newsfeed_path %>
+</div></div>

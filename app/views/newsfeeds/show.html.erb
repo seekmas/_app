@@ -1,24 +1,16 @@
-<p id="notice"><%= notice %></p>
+<div class="panel"><div class="panel-body">
+  <h3><%= @newsfeed.subject %></h3>
+  <p class="text-muted">更新于 <%=@newsfeed.updated_at.to_formatted_s(:s)%></p>
+  <p>
+    <%=image_tag @newsfeed.avatar.url(:medium) , :style => 'width: 100%'%>
+  </p>
+  <%= @newsfeed.content.html_safe %>
 
-<p>
-  <strong>Subject:</strong>
-  <%= @newsfeed.subject %>
-</p>
 
-<p>
-  <strong>Content:</strong>
-  <%= @newsfeed.content %>
-</p>
 
-<p>
-  <strong>Enabled:</strong>
-  <%= @newsfeed.enabled %>
-</p>
-
-<p>
-  <strong>Order:</strong>
-  <%= @newsfeed.order_id %>
-</p>
-
+<% if current_admin %>
 <%= link_to 'Edit', edit_newsfeed_path(@newsfeed) %> |
 <%= link_to 'Back', newsfeeds_path %>
+<% end %>
+
+</div></div>

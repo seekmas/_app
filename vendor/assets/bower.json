@@ -11,6 +11,8 @@
     "jquery-pdfdoc": "https://github.com/JAZ-013/jquery-pdfdoc.git",
     "pdf.js": "https://github.com/mozilla/pdf.js.git",
     "viewer": "https://github.com/seekmas/viewer.git",
-    "github-fork-ribbon-css": "latest"
+    "github-fork-ribbon-css": "latest",
+    "jquery-flipster": "https://github.com/drien/jquery-flipster.git",
+    "cover-flow": "https://github.com/coverflowjs/coverflow.git"
   }
 }

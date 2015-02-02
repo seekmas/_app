@@ -3,7 +3,9 @@
 
   <div class="form-inputs">
     <%= f.input :subject %>
-    <%= f.input :content %>
+    <%= f.input :active %>
+    <%= f.input :avatar , :label => 'Cover' %>
+    <%= f.cktext_area :content %>
     <%= f.input :enabled %>
     <%= f.input :order_id %>
   </div>
