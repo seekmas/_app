@@ -31,3 +31,4 @@ gem 'omniauth-facebook'
 gem "select2-rails"
 gem 'simple-form-datepicker'
 gem 'to_xls-rails'
+gem 'omniauth-weibo-oauth2'

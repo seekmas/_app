@@ -3,6 +3,8 @@ class AppController < ApplicationController
   before_action :authenticate_user! , only:[:history]
 
   def index
+    request.env['omniauth.auth']
+
     # if current_user
     #   UserNotifier.send_signup_email(current_user).deliver
     # end
