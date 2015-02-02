@@ -1,7 +1,6 @@
 # encoding: utf-8
 class CoursesController < ApplicationController
   before_action :set_course, only: [:show, :edit, :update, :destroy]
-
   before_action :authenticate_admin!, only: [:new, :create, :edit, :update, :destroy]
   respond_to :html
 
@@ -19,7 +18,18 @@ class CoursesController < ApplicationController
   end
 
   def show
+
+    if @course.vip_allowed == true
+      @vip = Vip.order(:id => :desc).find_by({:user_id => current_user.id })
+      if @vip == nil or Time.now > @vip.expired_at
+        return respond_to do |format|
+          format.html { redirect_to to_be_vip_path , :notice => '你还不是VIP会员/VIP已经到期' }
+        end
+      end
+    end
+
     @chapters = Chapter.where(:course_id => @course.id).all
+
     respond_with(@course)
   end
 
