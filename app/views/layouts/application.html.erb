@@ -51,6 +51,7 @@
 
         <div class="navbar-collapse collapse navbar-responsive-collapse  pull-right">
           <ul class="nav navbar-nav">
+            <li><%= link_to "首页", root_path %></li>
             <li><%= link_to "所有课程", all_courses_path %></li>
             <li><%= link_to "我的课程", my_course_path %></li>
             <li><%= link_to "观看记录", all_history_path %></li>
@@ -113,7 +114,7 @@
           <div class="panel"><div class="panel-body">
             <h3>课程类别</h3>
             <ul class="nav nav-list">
-                <% Catalog.where(:enabled => true).all.each do |catalog| %>
+                <% Catalog.where(:enabled => true).order(:order_id => :asc).all.each do |catalog| %>
 
                 <li>
                     <%=link_to catalog do %><span class="badge"><%=catalog.courses.length%></span> <%=catalog.subject%><% end %>

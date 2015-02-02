@@ -6,7 +6,7 @@ class CatalogsController < ApplicationController
   respond_to :html
 
   def index
-    @catalogs = Catalog.includes(:courses).all
+    @catalogs = Catalog.order(:order_id => :asc).includes(:courses).all
     respond_with(@catalogs , @course)
   end
 
@@ -46,6 +46,6 @@ class CatalogsController < ApplicationController
     end
 
     def catalog_params
-      params.require(:catalog).permit(:subject, :description, :enabled, :cover)
+      params.require(:catalog).permit(:subject, :description, :enabled, :cover, :order_id)
     end
 end

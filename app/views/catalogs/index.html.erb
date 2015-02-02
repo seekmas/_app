@@ -4,6 +4,7 @@
 <table class="table table-bordered table-condensed">
   <thead>
     <tr>
+      <th>Order</th>
       <th>Subject</th>
       <th>Description</th>
       <th>Enabled</th>
@@ -15,6 +16,7 @@
   <tbody>
     <% @catalogs.each do |catalog| %>
       <tr>
+        <td><%= catalog.order_id %></td>
         <td><%= catalog.subject %></td>
         <td><%= catalog.description %></td>
         <td><%= catalog.enabled %></td>
