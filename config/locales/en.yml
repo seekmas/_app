@@ -21,3 +21,10 @@
 
 en:
   hello: "Hello world"
+  mailer:
+    confirmation_instructions:
+      subject: 'Confirm your Qitch.com account'
+    reset_password_instructions:
+      subject: 'Reset your Qitch.com password'
+    unlock_instructions:
+      subject: 'Unlock your Qitch.com account'
