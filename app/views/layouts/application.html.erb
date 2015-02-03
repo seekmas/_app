@@ -143,18 +143,15 @@
       </footer>
 
     </div> <!-- /container -->
-    
+
   <% if current_user and request.env['PATH_INFO'] != '/sso_warning' %>
   <script>
       var socket = io('http://demo.leanyun.com:3456');
       socket.emit('uid', { id: <%=current_user.id%> , session_id: "<%=request.session_options[:id]%>" });
-
       socket.on('uid' , function(data){
-          console.log(data.id);
-          console.log(data.session_id);
-          if(data.id != <%=current_user.id%> || data.session_id != "<%=request.session_options[:id]%>")
+
+          if(data.id == <%=current_user.id%> && data.session_id != "<%=request.session_options[:id]%>")
           {
-              console.log('Fails to sso');
               window.location.href = "<%=sso_warning_path%>";
           }
       });
