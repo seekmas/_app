@@ -1,7 +1,8 @@
 <div class="page-header">
-    <h3>当前分类总计 <%=Catalog.all.length%> 个， 课程总计 <%=Course.all.length%> 门 ， 课时总计 <%=Period.all.length%> 个</h3>
+    <h3>课时总计 <%=Period.all.length%> 个</h3>
   </div>
 
+<% cache do %>
   <% @catalogs.each do |catalog| %>
       <% if catalog.courses.length > 0 %>
 
@@ -63,3 +64,4 @@
 
       <% end %>
   <% end %>
+<% end %>
