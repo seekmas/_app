@@ -13,6 +13,7 @@
     "viewer": "https://github.com/seekmas/viewer.git",
     "github-fork-ribbon-css": "latest",
     "jquery-flipster": "https://github.com/drien/jquery-flipster.git",
-    "cover-flow": "https://github.com/coverflowjs/coverflow.git"
+    "cover-flow": "https://github.com/coverflowjs/coverflow.git",
+    "lazyload": "https://raw.githubusercontent.com/tuupola/jquery_lazyload/master/jquery.lazyload.js"
   }
 }

@@ -44,12 +44,8 @@
                     <% end %>
 
                 <% end %>
-
-                <%=link_to image_tag(course.cover.url(:medium), :class => 'img-cover-thumb') , course%>
-
+                <%=link_to image_tag(course.cover.url(:medium), :lazy => true ,:class => 'img-cover-thumb') , course%>
                 <h4 class="sub-title"><%=link_to course.subject , course %></h4>
-
-
               </div>
 
             </div>

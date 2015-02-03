@@ -48,9 +48,7 @@
 
           <% end %>
 
-
-
-          <%=link_to image_tag(course.cover.url(:medium), { :class => 'cover'}) , course  %>
+          <%=link_to image_tag(course.cover.url(:medium), :lazy => true , :class => 'cover') , course  %>
 
             <div class="caption">
 
@@ -93,6 +91,7 @@
 
   var infinite_scroll = function()
   {
+      $("img").lazyload();
       var $container = $('.course-container');
 
       $container.imagesLoaded(function(){
@@ -124,6 +123,7 @@
                       $('.thumbnail').shadow();
                       $newElems.animate({ opacity: 1 });
                       $container.masonry( 'appended', $newElems, true );
+                      $("img").lazyload();
                   });
               }
       );

@@ -33,3 +33,4 @@ gem 'simple-form-datepicker'
 gem 'to_xls-rails'
 gem 'omniauth-weibo-oauth2'
 gem 'socket.io-rails'
+gem "lazyload-rails"

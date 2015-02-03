@@ -15,15 +15,14 @@
 //= require masonry/box-maker
 //= require masonry/jquery.loremimages.min
 //= require isotope/jquery.isotope
-//= require covervid/covervid.min.js
 //= require videojs/dist/video-js/video.js
 //= require GrindPlayer/index
 //= require select2
 //= require select2_locale_zh-CN
 //= require jquery-ui
 //= require cover-flow/dist/coverflow.min
-
 //= require socket.io
+//= require lazyload/index
 //= require_tree .
 
 
@@ -50,4 +49,6 @@ $(function(){
         // If you use i18n-js you can set the locale like that
         $(this).datepicker("option", $.datepicker.regional[I18n.currentLocale()]);
     })
+    $("img").lazyload();
 });
+
