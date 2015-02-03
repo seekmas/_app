@@ -19,6 +19,8 @@ class CoursesController < ApplicationController
 
   def show
 
+    authenticate_user!
+
     if @course.vip_allowed == true
       @vip = Vip.order(:id => :desc).find_by({:user_id => current_user.id })
       if @vip == nil or Time.now > @vip.expired_at

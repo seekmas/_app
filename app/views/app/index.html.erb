@@ -12,8 +12,7 @@
   </div>
 
 <div class="row course-container" style="margin-top: 300px;">
-
-
+  <% cache do %>
   <% @courses.each do |course| %>
       <div class="col-md-8">
         <div class="thumbnail">
@@ -80,6 +79,7 @@
             </div>
         </div>
       </div>
+  <% end %>
   <% end %>
 </div>
 
