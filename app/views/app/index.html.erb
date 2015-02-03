@@ -88,8 +88,8 @@
   <%= will_paginate @courses %>
 </div>
 
-  <%content_for :javascript do%>
-
+<%content_for :javascript do%>
+  <script>
   var infinite_scroll = function()
   {
       $("img").lazyload();
@@ -146,5 +146,5 @@
   if( $.turbo.isReady){
       infinite_scroll();
   }
-
+  </script>
 <% end %>
