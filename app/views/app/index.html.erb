@@ -87,7 +87,7 @@
   <%= will_paginate @courses %>
 </div>
 
-<script>
+  <%content_for :javascript do%>
 
   var infinite_scroll = function()
   {
@@ -146,5 +146,4 @@
       infinite_scroll();
   }
 
-
-</script>
+<% end %>

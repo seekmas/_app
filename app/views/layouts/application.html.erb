@@ -29,6 +29,10 @@
     <!-- Size should be 32 x 32 pixels -->
     <%= favicon_link_tag 'favicon.ico', :rel => 'shortcut icon' %>
 
+
+    <%= javascript_include_tag "application" %>
+
+
     <!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
     <!--[if lt IE 9]>
     <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.2/html5shiv.min.js" type="text/javascript"></script>
@@ -128,36 +132,23 @@
 
     </div> <!-- /container -->
 
-    <script>
-        function downloadJSAtOnload() {
-            var element = document.createElement("script");
-            element.src = '<%= asset_path "application.js" %>';
-            document.body.appendChild(element);
-
-            <% if current_user and request.env['PATH_INFO'] != '/sso_warning' %>
-
-            var socket = io('http://demo.leanyun.com:3456');
-            socket.emit('uid', { id: <%=current_user.id%> , session_id: "<%=request.session_options[:id]%>" });
-            socket.on('uid' , function(data){
-
-                if(data.id == <%=current_user.id%> && data.session_id != "<%=request.session_options[:id]%>")
-                {
-                    window.location.href = "<%=sso_warning_path%>";
-                }
-            });
-
-            <% end %>
-            
-        }
-        // Check for browser support of event handling capability
-        if (window.addEventListener)
-            window.addEventListener("load", downloadJSAtOnload, false);
-        else if (window.attachEvent)
-            window.attachEvent("onload", downloadJSAtOnload);
-        else window.onload = downloadJSAtOnload;
-    </script>
-
+  <script>
   <%= yield :javascript %>
+  <% if current_user and request.env['PATH_INFO'] != '/sso_warning' %>
 
+      var socket = io('http://demo.leanyun.com:3456');
+      socket.emit('uid', { id: <%=current_user.id%> , session_id: "<%=request.session_options[:id]%>" });
+
+      socket.on('uid' , function(data){
+
+          if(data.id == <%=current_user.id%> && data.session_id != "<%=request.session_options[:id]%>")
+          {
+              console.log('Fails to sso');
+              window.location.href = "<%=sso_warning_path%>";
+          }
+      });
+
+  <% end %>
+  </script>
   </body>
 </html>
