@@ -4,7 +4,9 @@
     <% Newsfeed.where(:enabled => true).order(:order_id => :desc).all.each do |newsfeed| %>
         <%= link_to image_tag(newsfeed.avatar.url(:medium) ,
                       :class => 'coverflow' ,
-                      :style => 'width: 600px;') , newsfeed%>
+                      :style => 'width: 600px;') , newsfeed ,
+                    :target => :_blank
+        %>
     <% end %>
   </div>
 
