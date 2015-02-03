@@ -2,31 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f8d1c53f-abd3-416f-b263-a7de7e9065a4" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/loading/.bower.json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/loading/README.md" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/loading/site/_buttons.scss" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/loading/site/_lists.scss" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/loading/site/_margins.scss" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/loading/site/_padding.scss" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/loading/site/_positions.scss" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/loading/site/_reset.scss" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/loading/site/_table-object.scss" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/loading/site/_theme.scss" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/loading/site/_type.scss" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/loading/site/_utilities.scss" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/loading/site/grid.svg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/loading/index.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/loading/loading-balls.svg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/loading/loading-bars.svg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/loading/loading-bubbles.svg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/loading/loading-cubes.svg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/loading/loading-cylon.svg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/loading/loading-spin.svg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/loading/loading-spinning-bubbles.svg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/loading/loading-spokes.svg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/loading/site/style.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/loading/site/style.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/app/index.html.erb" afterPath="$PROJECT_DIR$/app/views/app/index.html.erb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/layouts/application.html.erb" afterPath="$PROJECT_DIR$/app/views/layouts/application.html.erb" />
     </list>
     <ignored path="leancloud.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -51,7 +27,18 @@
     <favorites_list name="leancloud" />
   </component>
   <component name="FileEditorManager">
-    <leaf />
+    <leaf>
+      <file leaf-file-name="application.html.erb" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/views/layouts/application.html.erb">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.2866242" vertical-offset="1783" max-vertical-offset="2282">
+              <caret line="137" column="2" selection-start-line="137" selection-start-column="2" selection-end-line="137" selection-end-column="2" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -101,7 +88,6 @@
         <option value="$PROJECT_DIR$/app/assets/javascripts/application.js" />
         <option value="$PROJECT_DIR$/log/production.log" />
         <option value="$PROJECT_DIR$/app/controllers/courses_controller.rb" />
-        <option value="$PROJECT_DIR$/app/views/layouts/application.html.erb" />
         <option value="$PROJECT_DIR$/app/assets/stylesheets/application.css.scss" />
         <option value="$PROJECT_DIR$/app/views/app/all.html.erb" />
         <option value="$PROJECT_DIR$/app/views/subscribers/my_course.html.erb" />
@@ -110,6 +96,7 @@
         <option value="$PROJECT_DIR$/config/initializers/compression.rb" />
         <option value="$PROJECT_DIR$/config/environments/production.rb" />
         <option value="$PROJECT_DIR$/app/views/app/index.html.erb" />
+        <option value="$PROJECT_DIR$/app/views/layouts/application.html.erb" />
       </list>
     </option>
   </component>
@@ -117,8 +104,8 @@
     <detection-done>true</detection-done>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="65" />
-    <option name="y" value="152" />
+    <option name="x" value="88" />
+    <option name="y" value="66" />
     <option name="width" value="1276" />
     <option name="height" value="601" />
   </component>
@@ -162,6 +149,46 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="leancloud" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="leancloud" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="leancloud" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="views" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="leancloud" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="leancloud" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="views" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="layouts" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -369,8 +396,8 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="65" y="152" width="1276" height="601" extended-state="0" />
-    <editor active="false" />
+    <frame x="88" y="66" width="1276" height="601" extended-state="0" />
+    <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3298969" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
@@ -793,14 +820,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/layouts/application.html.erb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="3.685775" vertical-offset="0" max-vertical-offset="2268">
-          <caret line="124" column="14" selection-start-line="124" selection-start-column="14" selection-end-line="124" selection-end-column="14" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/views/app/history.html.erb">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="507">
@@ -813,6 +832,14 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.29545453" vertical-offset="1369" max-vertical-offset="2170">
           <caret line="108" column="28" selection-start-line="108" selection-start-column="28" selection-end-line="108" selection-end-column="28" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/layouts/application.html.erb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.2866242" vertical-offset="1783" max-vertical-offset="2282">
+          <caret line="137" column="2" selection-start-line="137" selection-start-column="2" selection-end-line="137" selection-end-column="2" />
           <folding />
         </state>
       </provider>

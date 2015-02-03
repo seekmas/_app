@@ -134,8 +134,9 @@
 
     </div> <!-- /container -->
 
-  <script>
+
   <%= yield :javascript %>
+  <script>
   <% if current_user and request.env['PATH_INFO'] != '/sso_warning' %>
 
       var socket = io('http://demo.leanyun.com:3456');
