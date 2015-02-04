@@ -15,8 +15,6 @@
 //= require lazyload/index
 //= require cover-flow/dist/coverflow.min
 
-
-
 NProgress.configure({
     showSpinner: true,
     ease: 'ease',
