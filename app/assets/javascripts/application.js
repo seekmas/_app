@@ -1,10 +1,6 @@
 //= require jquery
-//= require jquery.turbolinks
-//= require turbolinks
 //= require bootstrap-sprockets
 //= require jQuery-Shadow/jquery.shadow/jquery.shadow.js
-//= require nprogress
-//= require nprogress-turbolinks
 //= require masonry/masonry.min
 //= require masonry/jquery.infinitescroll.min
 //= require isotope/jquery.isotope
