@@ -5,18 +5,18 @@ class DeviseMailer < Devise::Mailer
   default template_path: 'devise/mailer' # to make sure that you mailer uses the devise views
 
   def confirmation_instructions(record, token, opts={})
-    headers["Custom-header"] = "精益云学院邮件激活"
+    headers["Custom-header"] = "精益云学院 邮件激活"
     super
   end
 
 
   def reset_password_instructions(record, token, opts={})
-    headers["Custom-header"] = "精益云学院找回密码"
+    headers["Custom-header"] = "精益云学院 找回密码"
     super
   end
 
   def unlock_instructions(record, token, opts={})
-    headers["Custom-header"] = "精益云学院解锁邮箱"
+    headers["Custom-header"] = "精益云学院 解锁邮箱"
     super
   end
 

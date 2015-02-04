@@ -15,7 +15,7 @@ Devise.setup do |config|
   # Configure the e-mail address which will be shown in Devise::Mailer,
   # note that it will be overwritten if you use your own mailer class
   # with default "from" parameter.
-  config.mailer_sender = 'secure@leanyun.com'
+  config.mailer_sender = '"精益云学院" <secure@leanyun.com>'
 
   # Configure the class responsible to send e-mails.
   config.mailer = 'DeviseMailer'
