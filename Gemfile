@@ -35,4 +35,4 @@ gem 'omniauth-weibo-oauth2'
 gem 'socket.io-rails'
 gem "lazyload-rails"
 gem 'rack-cache'
-gem 'rails_emoji', '~> 1.8.0'
+gem 'rails_emoji'

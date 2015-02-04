@@ -1,6 +1,5 @@
 //= require jquery
 //= require jquery.turbolinks
-//= require jquery_ujs
 //= require turbolinks
 //= require bootstrap-sprockets
 //= require jQuery-Shadow/jquery.shadow/jquery.shadow.js
@@ -8,18 +7,9 @@
 //= require nprogress
 //= require nprogress-turbolinks
 //= require masonry/masonry.min
-//= require masonry/jquery.event-drag
-//= require masonry/jquery.imagesloaded.min
 //= require masonry/jquery.infinitescroll.min
-//= require masonry/modernizr-transitions
-//= require masonry/box-maker
-//= require masonry/jquery.loremimages.min
 //= require isotope/jquery.isotope
-//= require videojs/dist/video-js/video.js
-//= require GrindPlayer/index
 //= require select2
-//= require select2_locale_zh-CN
-//= require cover-flow/dist/coverflow.min
 //= require socket.io
 //= require lazyload/index
 //= require_tree .
