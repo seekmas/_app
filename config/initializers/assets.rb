@@ -7,6 +7,9 @@ Rails.application.config.assets.precompile += %w( viewer/documentViewer/libs/pdf
 Rails.application.config.assets.precompile += %w( viewer/documentViewer/libs/yepnope.1.5.3-min.js )
 Rails.application.config.assets.precompile += %w( viewer/demo/js/jquery.tools.min.js )
 Rails.application.config.assets.precompile += %w( ttw-document-viewer.min.js )
+Rails.application.config.assets.precompile += %w( GrindPlayer/index.js )
+Rails.application.config.assets.precompile += %w( videojs/dist/video-js/video.js )
+Rails.application.config.assets.precompile += %w( select2.js )
 # Precompile additional assets.
 # application.js, application.css, and all non-JS/CSS in app/assets folder are already added.
 # Rails.application.config.assets.precompile += %w( search.js )

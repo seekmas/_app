@@ -1,3 +1,11 @@
+
+<% content_for :javascript do %>
+    <%= javascript_include_tag "select2" %>
+    <script>
+        $("select").select2();
+    </script>
+<% end %>
+
 <%= simple_form_for(@catalog) do |f| %>
   <%= f.error_notification %>
 

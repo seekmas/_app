@@ -36,3 +36,4 @@ gem 'socket.io-rails'
 gem "lazyload-rails"
 gem 'rack-cache'
 gem 'rails_emoji'
+gem 'dalli'
