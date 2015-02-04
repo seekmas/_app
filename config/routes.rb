@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :modes
+
   resources :subscribers
 
   resources :wishlists
@@ -10,7 +12,7 @@ Rails.application.routes.draw do
   resources :newsfeeds
 
   devise_for :admins
-  devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
+  devise_for :users#, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
 
   mount Like::Engine => '/'
   mount Ckeditor::Engine => '/ckeditor'

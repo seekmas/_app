@@ -3,8 +3,8 @@
 Devise.setup do |config|
   config.secret_key = 'bebd3a45b2c8fbd30cdf750d3ee0f14d2a6bd5e6e631a69ef7deeab1630c88752abcd1424aa6a511418d3f6780fa6df54da189cdab2aaafabf516b49a10e5024'
 
-  config.omniauth :facebook, "1564296310480860", "322b200dc9be9c1098753173819c90f4"
-  config.omniauth :weibo, "1791199972", "92d22a555ed9368418da424fdd013499" , :strategy_class => OmniAuth::Strategies::Weibo
+  #config.omniauth :facebook, "1564296310480860", "322b200dc9be9c1098753173819c90f4"
+  #config.omniauth :weibo, "1791199972", "92d22a555ed9368418da424fdd013499" , :strategy_class => OmniAuth::Strategies::Weibo
 
   # The secret key used by Devise. Devise uses this key to generate
   # random tokens. Changing this key will render invalid all existing

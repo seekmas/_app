@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150202081542) do
+ActiveRecord::Schema.define(version: 20150204023505) do
 
   create_table "admins", force: true do |t|
     t.string   "email",              default: "", null: false
@@ -135,6 +135,13 @@ ActiveRecord::Schema.define(version: 20150202081542) do
 
   add_index "members", ["email_canonical"], name: "UNIQ_2DA17977A0D96FBF", unique: true, using: :btree
   add_index "members", ["username_canonical"], name: "UNIQ_2DA1797792FC23A8", unique: true, using: :btree
+
+  create_table "modes", force: true do |t|
+    t.string   "subject"
+    t.text     "content"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "newsfeeds", force: true do |t|
     t.string   "subject"

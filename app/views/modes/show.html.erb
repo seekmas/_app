@@ -1,0 +1,16 @@
+<div class="panel"><div class="panel-body">
+
+<h3>
+  <%= @mode.subject %>
+</h3>
+
+<p>
+  <%= @mode.content.html_safe %>
+</p>
+
+  <% if current_admin %>
+    <%= link_to 'Edit', edit_mode_path(@mode) %> |
+    <%= link_to 'Back', modes_path %>
+  <% end %>
+
+</div></div>
