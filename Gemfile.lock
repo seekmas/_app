@@ -146,6 +146,8 @@ GEM
       cocaine (~> 0.5.3)
       mime-types
     rack (1.5.2)
+    rack-cache (1.2)
+      rack (>= 0.4)
     rack-test (0.6.3)
       rack (>= 1.0)
     rails (4.1.9)
@@ -239,6 +241,7 @@ DEPENDENCIES
   omniauth-facebook
   omniauth-weibo-oauth2
   paperclip (~> 4.2)
+  rack-cache
   rails (= 4.1.9)
   sass-rails (~> 4.0.3)
   sdoc (~> 0.4.0)
