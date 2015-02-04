@@ -1,6 +1,6 @@
 class ModesController < ApplicationController
   before_action :set_mode, only: [:show, :edit, :update, :destroy]
-
+  before_action :authenticate_admin!, except: [:show]
   respond_to :html
 
   def index
