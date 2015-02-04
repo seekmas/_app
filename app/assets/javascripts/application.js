@@ -19,7 +19,6 @@
 //= require GrindPlayer/index
 //= require select2
 //= require select2_locale_zh-CN
-//= require jquery-ui
 //= require cover-flow/dist/coverflow.min
 //= require socket.io
 //= require lazyload/index
