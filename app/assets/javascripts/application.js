@@ -13,8 +13,8 @@
 //= require socket.io
 //= require lazyload/index
 //= require cover-flow/dist/coverflow.min
-
-
+//= require GrindPlayer/index
+//= require videojs/dist/video-js/video.js
 
 NProgress.configure({
     showSpinner: true,
