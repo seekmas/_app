@@ -4,16 +4,17 @@
 //= require bootstrap-sprockets
 //= require jQuery-Shadow/jquery.shadow/jquery.shadow.js
 //= require ckeditor/init
-//= require select2
 //= require nprogress
 //= require nprogress-turbolinks
 //= require masonry/masonry.min
 //= require masonry/jquery.infinitescroll.min
 //= require isotope/jquery.isotope
-
+//= require select2
 //= require socket.io
 //= require lazyload/index
 //= require cover-flow/dist/coverflow.min
+
+
 
 NProgress.configure({
     showSpinner: true,
@@ -22,14 +23,11 @@ NProgress.configure({
 });
 
 $(function(){
-    $('.navbar').shadow();
     $('.thumbnail').shadow();
-    $('.panel').shadow();
     $('.thumbnail_cover').shadow();
     $('.coverflow').shadow();
     $('.mini-block').shadow();
     $("select").select2();
-
     //$("input.datepicker").each(function(input) {
     //    $(this).datepicker({
     //        dateFormat: "yy-mm-dd",
