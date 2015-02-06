@@ -1,18 +1,13 @@
 Rails.application.routes.draw do
   resources :modes
-
   resources :subscribers
-
   resources :wishlists
-
   resources :vips
-
   resources :user_profiles
-
   resources :newsfeeds
 
   devise_for :admins
-  devise_for :users#, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
+  devise_for :users
 
   mount Like::Engine => '/'
   mount Ckeditor::Engine => '/ckeditor'
@@ -36,7 +31,7 @@ Rails.application.routes.draw do
   get '/:user_id/member/edit' , :to => 'members#edit' , :as => 'edit_member'
   post '/:user_id/member/edit' , :to => 'members#edit' , :as => 'post_member'
 
-  get '/users' , :to => 'app#to_excel' , :as => 'users'
+  get '/users_export' , :to => 'app#to_excel' , :as => 'users_export'
   get '/sso_warning' , :to => 'app#sso_warning' , :as => 'sso_warning'
 
   # The priority is based upon order of creation: first created -> highest priority.

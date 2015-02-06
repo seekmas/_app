@@ -1,4 +1,5 @@
 //= require jquery
+//= require jquery_ujs
 //= require jquery.turbolinks
 //= require turbolinks
 //= require bootstrap-sprockets
@@ -15,6 +16,7 @@
 //= require cover-flow/dist/coverflow.min
 //= require GrindPlayer/index
 //= require videojs/dist/video-js/video.js
+//= require_tree .
 
 NProgress.configure({
     showSpinner: true,
