@@ -3,6 +3,12 @@ class Chapter < ActiveRecord::Base
   has_many :periods
 
   def to_s
-    self.course.subject+' '+self.id.to_s+'. '+self.subject
+
+    if self.course
+      self.course.subject+' '+self.id.to_s+'. '+self.subject
+    else
+      '没有分配'
+    end
+
   end
 end
