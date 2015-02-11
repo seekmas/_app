@@ -29,6 +29,11 @@ class WishlistsController < ApplicationController
     end
 
     @wishlist.save
+
+    if current_user
+      UserNotifier.send_signup_email(@wishlist).deliver
+    end
+
     respond_with(@wishlist)
   end
 

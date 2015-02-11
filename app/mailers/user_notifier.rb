@@ -4,11 +4,11 @@ class UserNotifier < ActionMailer::Base
 
 
   # send a signup email to the user, pass in the user object that   contains the user's email address
-  def send_signup_email(user)
-    @user = user
-    mail( :from => '精益云学院 <admin@leanyun.com>',
-          :to => @user.email,
-          :subject => '感谢你的访问' )
-  end
+  def send_signup_email(wishlist)
+    @wishlist = wishlist
 
+    mail( :from => '精益云学院 <admin@leanyun.com>',
+          :to => '446146366@qq.com',
+          :subject => '有人留创建了愿望' )
+  end
 end

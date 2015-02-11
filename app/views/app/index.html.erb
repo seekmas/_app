@@ -15,7 +15,8 @@
 
 <div class="row course-container" style="margin-top: 300px;">
 
-  <% @courses.each do |course| %>
+  <% @courses.each_with_index do |course, index| %>
+
       <div class="col-md-8">
         <div class="thumbnail">
 
@@ -49,7 +50,9 @@
 
           <% end %>
 
-          <%=link_to image_tag(course.cover.url(:medium), :lazy => true , :class => 'cover') , course  %>
+
+
+          <%=link_to image_tag(course.cover.url(:medium), :lazy => true , :class => 'cover' , :style => 'height: 169px;') , course  %>
 
             <div class="caption">
 
@@ -81,7 +84,10 @@
             </div>
         </div>
       </div>
+
+
   <% end %>
+
 </div>
 
 <div class="col-md-24 hidden">
