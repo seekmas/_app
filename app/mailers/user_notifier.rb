@@ -8,7 +8,7 @@ class UserNotifier < ActionMailer::Base
     @wishlist = wishlist
 
     mail( :from => '精益云学院 <admin@leanyun.com>',
-          :to => '446146366@qq.com',
+          :to => 'mwang@jingqi100.com',
           :subject => '有人留创建了愿望' )
   end
 end
